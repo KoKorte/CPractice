@@ -145,6 +145,35 @@ printf("\nTehtävä 4\n");
 
 ////////////////////////////////////////////////////////////////////////////////
 
+/*
+    //ILTAPÄIVÄN TEHTÄVÄ
+
+    //Kysy nimi, ikä ja pankkitilin summa.
+    //tulosta "Minä olen X ja ikäni on Y."
+    //tulosta "50 vuoden kuluttua ikäni on Z."
+    //tulosta "Tililläni on rahaa vain 111.11 euroa."
+
+    -----------------------------------------------------------------------
+    OMA
+    -----------------------------------------------------------------------
+
+printf("\nIltapäivän tehtävä\n");
+
+    char nimi[20] = "";
+    int ika = 0;
+    float raha = 0;
+
+    printf("\nMikä on sinun nimesi?\n");
+    scanf("%s", &nimi);
+    printf("\nKuinka vanha sinä olet?\n");
+    scanf("%d", &ika);
+    printf("\nPaljonko rahaa sinulla on?\n");
+    scanf("%f", &raha);
+
+    printf("\nMinä olen %s ja ikäni on %d vuotta.", nimi, ika);
+    printf("\n50 vuoden kuluttua ikäni on %d vuotta.", ika+50);
+    printf("\nTililläni on rahaa vain %f euroa.", raha);
+*/
 
   return 0;
 } 
