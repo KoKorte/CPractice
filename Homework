@@ -16,17 +16,18 @@ int main()
 */
 //SAME FUNCTION USING FOR LOOP
 /*#include <stdio.h>
-#include <string.h>
 
 int main() {
-    char sana[] = "robin hood";
-    int length = strlen(sana);
+    // Sanan "robin hood" kova koodaus
+    char nimi[] = "robin hood";
+    int pituus = 11;
+    int x; // Laskuri
 
-    printf("Alkuperäinen sana on: %s\n", sana);
+    printf("\nNimi: %s\n", nimi);
 
-    printf("Käännetty sana on: ");
-    for (int i = length - 1; i >= 0; i--) {
-        printf("%c", sana[i]);
+    printf("Nimi käännettynä: ");
+    for (x = pituus - 1; x >= 0; x--) {
+        printf("%c", nimi[x]);
     }
     printf("\n");
 
