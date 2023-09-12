@@ -1,0 +1,35 @@
+//REVERSE GIVEN WORD BACKWARDS
+/*
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char sana[20];
+    printf("\nAnna sana ja käännän sen toisin päin: ");
+    scanf("%s", sana);
+
+    printf("Sana on toisin päin: %s ", strrev(sana));
+
+    return 0;
+}
+*/
+//SAME FUNCTION USING FOR LOOP
+/*#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char sana[] = "robin hood";
+    int length = strlen(sana);
+
+    printf("Alkuperäinen sana on: %s\n", sana);
+
+    printf("Käännetty sana on: ");
+    for (int i = length - 1; i >= 0; i--) {
+        printf("%c", sana[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
+*/
