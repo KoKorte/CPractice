@@ -1,0 +1,239 @@
+#include <stdio.h>
+#include <stdbool.h>
+#include <ctype.h>
+
+int main(){
+
+//////////////////////////////////////////////////////////////////////
+/*TASK 1
+    // Ask user's age
+    // if age is 18+, print out "You are adult"    
+    // otherwise print out "You are minor"
+----------------------------------------------------------------------
+OMA
+----------------------------------------------------------------------*//*
+int ika;
+printf("\nKuinka vanha sinä olet?\n");
+scanf("%d", &ika);
+    (ika >= 18) ?
+    (printf("\nOlet aikuinen")) :
+    (printf("\nOlet alaikäinen"));
+
+----------------------------------------------------------------------*//*
+MALLI
+----------------------------------------------------------------------
+int age;
+    printf("\nTell me your age?\n");
+    scanf("%d", &age);
+    ( age >= 18) ?
+    ( printf("\nYou are adult\n") ) :
+    ( printf("\nYou are minor\n") );
+
+*/
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+/*TASK 2
+    // calculate 3 AND 6 
+    // calculate 1 XOR 3 // should be 2
+
+----------------------------------------------------------------------
+OMA
+----------------------------------------------------------------------*//*
+int a = 3, b = 6;
+printf("\n3 AND 6 on %d", a&b);
+
+int c = 1, d = 3;
+printf("\n1 XOR 3 on %d", c^d);
+----------------------------------------------------------------------*//*
+MALLI
+----------------------------------------------------------------------
+a = 3, b = 6;
+    // a = 0011     2+1=3
+    // b = 0110     4+2=6
+    // AND 0010     2
+    printf("\n3 AND 6 is %d", a&b); // 2  
+
+    a = 1, b = 3;
+    // a = 0001     1
+    // b = 0011     2+1=3
+    // XOR 0010     2     
+    printf("\n1 XOR 3 is %d", a^b); // 2 
+*/
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+/*TASK 3
+    // Ask a number from user.
+    // explain if it is an even or odd number.
+----------------------------------------------------------------------
+OMA
+----------------------------------------------------------------------*//*
+
+----------------------------------------------------------------------*//*
+MALLI
+----------------------------------------------------------------------
+
+*/
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+/*TASK 4
+    // input 3 numbers
+    // inform the largest number
+----------------------------------------------------------------------
+OMA
+----------------------------------------------------------------------*//*
+int a = 6, b = 9, c = 2;
+printf("\n3 numeroa %d, %d ja %d", a, b, c);
+if (a>b & a>c){
+printf("\n%d on näistä suurin.", a);
+}else if (b>a & b>c){
+    printf("\n%d on näistä suurin.", b);
+    }else {
+        printf("\n%d on näistä suurin.", c);
+    }
+----------------------------------------------------------------------*//*
+MALLI
+----------------------------------------------------------------------
+ int c;
+    printf("\nGive three numbers\n");
+    scanf("%d %d %d",&a,&b,&c);
+    if (a >= b) {
+        if (a >= c) {
+            printf("A biggest");
+        } else {
+            printf("C biggest");
+        }
+    } else {
+        if (b >= c) {
+            printf("B biggest");
+        } else {
+            printf("C biggest");
+        }
+    }
+*/
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+/*TASK6
+    // Remake Task 05
+    // Task 05:
+    // ask a number between 1 and 10
+    // if number is:
+    // 10 write "excellent"
+    // 8 or 9 write "good"
+    // 7 or 6 write "passable"
+    // anything else write "low"
+    // Use if else structure.
+
+----------------------------------------------------------------------
+OMA
+----------------------------------------------------------------------*//*
+int a;
+    printf("\nAnna numero\n");
+        scanf("%d",&a);
+        switch (a) {
+            case 10:
+                printf("\nExcellent!");
+                break;
+            case 8 ... 9:
+                printf("\nGood!");
+                break;
+            case 6 ... 7:
+                printf("\nPassable!");
+                break;
+            default:
+                printf("\nLow!");
+                break;       
+        }
+
+----------------------------------------------------------------------*//*
+MALLI
+----------------------------------------------------------------------
+    printf("\nAnna numero\n");
+    scanf("%d",&a);
+
+    switch (a) {
+        case 10:        
+            printf("\nExcellent!");
+            break;
+        case 8 ... 9:
+            printf("\nGood!");
+            break;
+        case 6 ... 7:
+            printf("\nPassable!");
+            break;
+        default:
+            printf("\nLow!");
+            break;
+    }
+*/
+//////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
+//TEHTÄVÄ
+    //VAATTEIDEN VALINTA
+    //Anna lämpötila fahrenheitteina (int)
+    //muuta se Celsiusasteiksi (float)
+    //määritä (boolean) sataa/ei sada
+    //jos lämpöä on:
+    //25-30 astetta
+    //kesähattu ja aurinkolasit
+    //paitsi jos sataa, niin ei aurinkolaseja
+    //20-25 astetta:
+    //kesävaatteet
+    //10-20 astetta:
+    //joko sadevaatteet tai kesävaatteet
+    //0-10 astetta:
+    //lämpimät vaatteet
+    //muuten ei osata neuvoa
+/*
+int f = 0, sade = 0;
+float c = 0;
+char sade[] = 0;
+
+    //Muutetaan kysytty fahrenheit Celsius asteeksi
+    printf("\nAnna lämpötila fahrenheitteina: ");
+    scanf("%d", &f);
+    c = (f - 32) / 1.8 ;
+    printf("\nLämpötila on %.1f astetta Celsiusta", c);
+
+
+    switch ((int)c) {
+        case 25 ... 30:
+            printf("\nPue päälle kesahattu.");
+            break;
+        case 20 ... 24:
+            printf("\nPue päälle kesävaatteet.");
+            break;
+        case 10 ... 19:
+            printf("\nPue päälle");
+            break;
+        case 0 ... 9:
+            printf("\nPue päälle lämpimästi.");
+            break;
+        default:
+            printf("\nEn osaa neuvoa.");
+            break;
+    }*/
+
+////////////////////////////////////////////////////////
+//JOULUKUUSI
+/////////////////////////////////////////////////////////
+/*PIIRRÄ JOULUKUUSI/*/
+/*
+int y=0;
+    printf("\nKuinka korkean kuusen haluat? ");
+    scanf("%d", &y);
+    printf("\n");
+    for (int i = 0; i < y; i++){
+        for (int a = 0; a < y-i; a++){
+            printf("%c", ' ');
+        }
+        int x = 1 + (i*2);
+        for (int j = 0; j < x; j++){
+            printf("%c", '*');
+        }
+        printf("\n");
+    }
+
+*/
+//x leveys, y korkeus, a
+    return 0;
+}
