@@ -1,0 +1,845 @@
+#include <stdio.h>
+#include <math.h>
+#include<string.h>
+#include <ctype.h>
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-------------------------C-EXERCISES BASED ON https://github.com/manjunath5496/Beginner-C-Exercises/blob/master/README.md-------------------------
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+int main()
+{
+    //1. Write a program to print Hello World!.
+
+    /*
+    printf("\nHello World!\n");
+    */
+
+//Answer
+/*
+#include<stdio.h>
+int main() {
+printf("Hello,world!");
+return 0;
+}
+*/
+
+    //2. Write a program to compute the perimeter and area of a rectangle
+
+    /*
+    int x = 2;
+    int y = 4;
+
+    printf("\nThe perimeter of the rectangle is %d and the area is %d", 2*(x+y), x*y);
+    */
+    
+//Answer
+/*
+#include<stdio.h> 
+int main() {
+int height = 8;
+int width = 5;
+int perimeter = 2*(height + width);
+printf("Perimeter of the rectangle is: %d cm\n", perimeter);
+int area = height * width;
+printf("Area of the rectangle is: %d square cm\n", area);
+return 0;
+}
+*/
+
+    //3. Write a program to compute the perimeter and area of a circle.
+
+    /*
+    int r = 5;
+    printf("\nThe perimeter of the rectangle is %.1f and the are is %.1f", 3.14*r, 2*3.14*r);
+    */  
+
+//Answer
+/*
+#include<stdio.h> 
+int main() {
+int radius = 4;
+float perimeter = 2*3.14*radius;
+printf("Perimeter of the circle is: %f cm\n", perimeter);
+float area = 3.14*radius*radius;
+printf("Area of the circle is: %f square cm\n", area);
+return 0;
+}   
+*/
+
+    //4. Write a program that accepts two numbers from the user and calculate the sum of the two numbers.
+
+    /*
+    int x = 0;
+    int y = 0;
+    
+        printf("\nSyötä ensimmäinen numero: ");
+            scanf("%d", &x);
+        printf("\nSyötä toinen numero: ");
+            scanf("%d", &y);
+
+        printf("\n*Beep Boop* Näiden numeroiden yhteynen summa on: %d", x + y);
+    */
+
+//Answer
+/*
+#include<stdio.h>
+int main() {
+int a, b, sum;
+printf("\nEnter the first number: "); 
+scanf("%d", &a);
+printf("\nEnter the second number: ");
+scanf("%d", &b);
+sum = a + b;
+printf("\nSum of the above two numbers is: %d", sum);
+return 0;
+}
+*/
+
+    //5. Write a program that accepts two numbers from the user and calculate the product of the two numbers.
+
+    /*
+    int x = 0;
+    int y = 0;
+
+        printf("\nSyötä ensimmäinen luku: ");
+            scanf("%d", &x);
+        printf("\nSyötä toinen luku: ");
+            scanf("%d", &y);
+
+        printf("\nNäiden lukujen yhteinen tulo on: %d", x*y);
+    */
+
+//Answer
+/*
+#include<stdio.h>
+int main() {
+int a, b, mult;
+printf("\nEnter the first number: "); 
+scanf("%d", &a);
+printf("\nEnter the second number: ");
+scanf("%d", &b);
+mult = a * b;
+printf("\nProduct of the above two numbers is: %d", mult);
+return 0;
+}
+*/
+
+    //6. Write a program that accepts three numbers and find the largest of three.
+    
+    /*
+    int x = 0;
+    int y = 0;
+    int z = 0;
+
+    printf("\nKatsotaan mikä näistä kolmesta on suurin!");
+    printf("\nSyötä ensimmäinen luku: ");
+        scanf("%d", &x);
+    printf("\nSyötä toinen luku: ");
+        scanf("%d", &y);
+    printf("\nSyötä kolmas luku: ");
+        scanf("%d", &z);
+
+    if (x > y & x > z) {
+        printf("\nSyötetyistä luvuista %d on suurin", x);
+    }
+
+    else if (y > x & y > z) {
+        printf("\nSyötetyistä luvuista %d on suurin", y);
+    }
+
+    else printf("\nSyötetyistä luvuista %d on suurin", z);
+    */
+
+//Answer
+/*
+#include<stdio.h>
+int main() {
+int x, y, z;
+printf("\nEnter the first number: "); 
+scanf("%d", &x);
+printf("\nEnter the second number: ");
+scanf("%d", &y);
+printf("\nEnter the third number: ");
+scanf("%d", &z);
+
+// if x is greater than both y and z, x is the largest
+if (x >= y && x >= z)
+printf("\n%d is the largest number.", x);
+
+// if y is greater than both x and z, y is the largest
+if (y >= x && y >= z)
+printf("\n%d is the largest number.", y);
+
+// if z is greater than both x and y, z is the largest
+if (z >= x && z >= y)
+printf("\n%d is the largest number.", z);
+    
+return 0;
+}    
+*/
+
+    //7. Write a program that reads three floating values and check if it is possible 
+    //to make a triangle with them. 
+    //Also calculate the perimeter of the triangle if the entered values are valid.
+
+    /*
+    //KOLMION TEKO PERUSTUEN KULMIEN KOKOON!!!!
+    float x = 0;
+    float y = 0;
+    float z = 0;
+
+    printf("\nKatsotaan saadaanko tehtyä syötetyistä luvuista kolmio!");
+    printf("\nSyötä ensimmäinen luku: ");
+        scanf("%f", &x);
+    printf("\nSyötä toinen luku: ");
+        scanf("%f", &y);
+    printf("\nSyötä kolmas luku: ");
+        scanf("%f", &z);
+    
+    if (x + y + z == 360.00) {
+        printf("\nJippii, syötettyjen lukujen summa on yhteensä %2.f elikkä kolmio onnistuu!", x+y+z);
+    }
+
+    else if (x + y + z > 360.00) {
+        printf("\nSyötettyjen lukujen summa on liian suuri luku muodostamaan kolmion");
+    }
+
+    else printf("\nSyötettyjen lukujen summa on liian pieni luku muodostamaan kolmion");
+
+    //KOLMION TEKO SIVUJEN MUKAAN
+    float x = 0;
+    float y = 0;
+    float z = 0;
+
+    printf("\nKatsotaan saadaanko tehtyä syötetyistä luvuista kolmio!");
+    printf("\nSyötä ensimmäinen luku: ");
+        scanf("%f", &x);
+    printf("\nSyötä toinen luku: ");
+        scanf("%f", &y);
+    printf("\nSyötä kolmas luku: ");
+        scanf("%f", &z);
+
+    if (x + y == z || y + z == x || z + x == y) {
+        printf("\nMahtavaa! Kolmion teko onnistuu ja sen piiri on: %2.f", x+y+z);
+    }
+    else printf("\nSyötetyt arvot eivät pysty antamaan kolmiota, pyöritä ohjelma uudelleen!");
+    */
+
+//Answer
+/*
+#include<stdio.h>
+int main() {
+float  x, y, z;
+printf("\nEnter the first number: "); 
+scanf("%f", &x);
+printf("\nEnter the second number: ");
+scanf("%f", &y);
+printf("\nEnter the third number: ");
+scanf("%f", &z);
+
+if(x < (y+z) && y < (x+z) && z < (y+x)) {  
+printf("\nPerimeter of the triangle is: %f\n", x+y+z);	 
+}
+else {
+printf("\nIt is impossible to form a triangle.");
+}
+return 0;
+}
+*/
+
+    //8. Write a program that reads an integer between 1 and 7 and print the day of the week in English.
+
+    /*
+    int x = 0;
+
+    printf("\nKatsotaanpa päivä! Syötä numero lukujen 1 ja 7 väliltä: ");
+        scanf("%d", &x);
+
+    if (x >= 8) {
+        printf("\nSyötit liian suuren numeron, kokeille uudestaan!");
+    }
+    else if (x <= 0) {
+        printf("\nSyötit liian pienen numeron, kokeille uudestaan!");
+    }
+    
+    switch (x) {
+        case 1:
+            printf("\nSyötit luvun %d, päivä on siis maanantai", x);
+            break;
+        case 2:
+            printf("\nSyötit luvun %d, päivä on siis tiistai", x);
+            break;
+        case 3:
+            printf("\nSyötit luvun %d, päivä on siis keskiviikko", x);
+            break;
+        case 4:
+            printf("\nSyötit luvun %d, päivä on siis torstai", x);
+            break;
+        case 5:
+            printf("\nSyötit luvun %d, päivä on siis perjantai", x);
+            break;
+        case 6:
+            printf("\nSyötit luvun %d, päivä on siis lauantai", x);
+            break;
+        case 7:
+            printf("\nSyötit luvun %d, päivä on siis sunnuntai", x);
+            break;
+    }
+    */
+
+//Answer
+/*
+#include<stdio.h>
+int main() {
+int day;
+printf("\nEnter a number between 1 to 7 to get the day name: ");
+scanf("%d", &day);
+switch(day) {
+case 1 : printf("Monday\n"); break;
+case 2 : printf("Tuesday\n"); break;
+case 3 : printf("Wednesday\n"); break;
+case 4 : printf("Thursday\n"); break;
+case 5 : printf("Friday\n"); break;
+case 6 : printf("Saturday\n"); break;
+case 7 : printf("Sunday\n"); break;
+default : printf("Enter a number between 1 to 7.");
+}
+return 0;
+}
+*/
+
+    //9. Write a program to find the sum of two numbers.
+
+    /*
+    int x, y;
+    printf("\nSyötä luvut x ja y: ");
+        scanf("%d", &x);
+    printf("\nJa y: ");
+        scanf("%d", &y);
+    printf("\nSyöttämäsi lukujen x ja y summa on: %d", x+y);
+    */
+    
+//Answer
+/*
+#include<stdio.h>
+int main() {
+int a, b, sum;
+a=1;
+b=2;
+sum = a + b;
+printf("The sum of a and b = %d", sum);
+return 0;
+}
+*/
+
+    //10. Write a program to find the square of a number.
+
+    /*
+    int x = 13;
+    float y = sqrt(x);
+
+    //printf("\nSyötä numero ja katsotaan sen neliöjuuri: "),
+    //    scanf("%d", &x);
+    printf("\nSyöttämäsi luvun %d neliö on %2.f", x, y);
+    */
+
+//Answer
+/*
+#include<stdio.h>
+#include<math.h>
+int main() {
+int a, b;
+a=2;
+b = pow((a), 2);
+printf("The square of a = %d", b);
+return 0;
+}
+*/
+
+    //11. Write a program to find the greatest of two numbers.
+
+    /*
+    int x, y;
+
+    printf("\nKatsotaas kumpi numeroistasi on suurin!");
+
+    printf("\nSyötä ensmimmäinen numerosi: ");
+        scanf("%d", &x);
+    printf("\nJa sitten seuraava numero: ");
+        scanf("%d", &y);
+
+    if (x > y){
+        printf("\nLuku %d on suurempi kuin luku %d", x, y);
+    }
+    else if (x == y){
+        printf("\nAntamasi luvut ovat yhtäsuuret");
+    }
+    else printf("\nLuku %d on suurempi kuin luku %d", y, x);
+    */
+
+//Answer
+
+/*
+#include<stdio.h>
+int main() {
+int a, b;
+a = 2;
+b = 3;
+if(a>b) {
+printf("a is greater than b");
+}
+else {
+printf("b is greater than a");
+}
+return 0;
+}
+*/
+
+    //12. Write a program to print the average of the elements in the array.
+    
+    /*
+    int a = 0, b = 0, c = 0, d = 0, e = 0;
+
+    printf("\nKatsotaanpa viiden numeron jonon keskimäärä!\n");
+    printf("\nSyötä ensimmäinen numero: ");
+        scanf("%d", &a);
+    printf("\nSyötä toinen numero: ");
+        scanf("%d", &b);
+    printf("\nSyötä kolmas numero: ");
+        scanf("%d", &c);
+    printf("\nSyötä neljäs numero: ");
+        scanf("%d", &d);
+    printf("\nJa viimeinen numero: ");
+        scanf("%d", &e);
+    float ave = (a+b+c+d+e)/5;
+
+    printf("\nSyöttämäsi jonon %d, %d, %d, %d, %d keskiarvo on %2.f", a, b, c, d, e, ave);
+    */
+
+//Answer
+
+/*
+#include<stdio.h>
+int main() {
+int i, avg, sum = 0;
+int num [5] = {16, 18, 20, 25, 36};
+for(i=0; i<5; i++) {
+sum = sum + num [i];
+avg = sum/5;
+}
+printf("Sum of the Elements in the array is: %d\n", sum);
+printf("Average of the elements in the array is: %d\n", avg);
+return 0;
+}
+*/
+
+    //13. Write a program that prints all even numbers between 1 and 25.
+
+    /*
+    printf("\nTulostetaan kaikki parilliset numerot jonosta 1 ... 25: ");
+    //for loopilla lisätään jonoon j yksi lisää niin kauan kunnes se on 25,
+    //jonka jälkeen se lopettaa lisäämisen
+    for (int j = 1; j <= 25; j++){
+    //jos jono j jakojäännös on 0, se tulostetaan
+        if (j%2 == 0 ){
+            printf("%d, ", j);
+        }
+    }
+    */
+
+//Answer
+
+/*
+printf("Even numbers between 1 to 25:\n");
+for(int i = 1; i <= 25; i++) {
+if(i%2 == 0) {
+printf("%d ", i);
+}
+}
+return 0;
+}
+*/
+
+    //14. Write a program that prints all odd numbers between 1 and 50.
+    
+    /*
+    printf("\nTulostetaan kaikki parittomat numerot jonosta 1 ... 50: ");
+
+    for (int j = 1; j <= 50; j++){
+    //Voidaan myös käyttää if (j%2 != 0)...
+        if (j%2 == 1){
+            printf("%d, ", j);
+        }
+    }
+    */
+
+//Answer
+
+/*
+#include<stdio.h>
+int main() {
+printf("Odd numbers between 1 to 50:\n");
+for(int i = 1; i <= 50; i++) {
+if(i%2 != 0) {
+printf("%d ", i);
+}
+}
+return 0;
+}
+*/
+
+    //15. Write a program to print the first 10 numbers starting from 
+    //one together with their squares and cubes.
+
+    /*
+    printf("\nTulostetaan numeroiden 1 ... 10 summa ja lasketaan niiden neliöt ja kuutiot\n");
+
+    for (int j = 1; j <= 10; j++){
+        printf("Jonon numero on %d numeron neliö on %d ja kuutio on %d \n", j, j*j, j*j*j);
+    }
+    */
+
+//Answer
+
+/*
+#include<stdio.h>
+int main() {
+for(int i=1; i<=10; i++) {
+printf("Number = %d its square = %d its cube = %d\n", i , i*i, i*i*i);
+}
+return 0;
+}
+*/
+
+    //16. Write a program:
+    //If you enter a character M
+    //Output must be: ch = M.
+
+    /*
+    char x;
+    printf("\nSyötä kirjain: ");
+    scanf("%c", &x);
+
+    printf("\nch = %c." , x);
+    */
+    
+//Answer
+
+/*
+#include<stdio.h>
+int main() {
+char M;
+printf("Enter any character: ");
+scanf("%c", &M);
+printf("ch = %c", M);
+return 0;
+}
+*/
+
+    //17. Write a program to print the multiplication table of a number entered by the user.
+
+    /*
+    int x, y;
+
+    printf("\nKatsotaanpa kertotaulukkoa!");
+
+    printf("\nSyötä numero: ");
+        scanf("%d", &x);
+    for (y = 1; y <= 10; y++){
+        printf("\nLuvun %d ja %d tulo on %d\n", x, y, x*y);
+    }
+    */
+    
+//Answer
+
+/*
+int n, i;
+printf("Enter any number: ");
+scanf("%d", &n);
+for(i=1; i<=5; i++) {
+printf("%d * %d = %d\n", n, i, n*i);
+}
+*/
+
+    //18. Write a program to print the product of the first 10 digits.
+
+    /*
+    int x, y = 1;
+
+    printf("\nLasketaan merkkijonon 10 ensimmäisen numeron tulo!");
+
+    printf("\nSyötä numero: ");
+        scanf("%d", &x);
+    for (x = 1; x <= 10; x++){
+        y = y * x;
+    }
+    printf("\nEnsimmäisen 10 numeron tulo on %d", y);
+    */
+
+//Answer
+
+/*
+#include<stdio.h>
+int main() {
+int i, product = 1;
+for(i=1; i<=10; i++) {
+product = product * i;
+}
+printf("The product of the first 10 digits is: %d", product);
+return 0;
+}
+*/
+
+    //19. Write a program to print whether the given number is positive or negative.
+
+    /*
+    float x;
+
+    printf("\nTarkistetaan onko numero positiivinen vai negatiivinen!");
+    printf("\nSyötä numero: ");
+        scanf("%f", &x);
+    if (x >= 0){
+        printf("\nNumero %.2f on positiivinen!", x);
+    }
+    else printf("\nNumero %.2f on negatiivinen!", x);
+    */
+
+//Answer
+
+/*
+#include<stdio.h>
+int main() {
+int a;
+a = -35;
+if(a>0) {
+printf("Number is positive");
+}
+else {
+printf("Number is negative");
+}
+return 0;
+}
+*/
+
+    //20. Write a program to check the equivalence of two numbers entered by the user.
+
+    /*
+    int x, y;
+
+    printf("\nTarkistetaan ovatko syötetyt numerot saman kokoiset!");
+
+    printf("\nSyötä ensimmäinen numero: ");
+        scanf("%d", &x);
+    printf("\nSyötä toinen numero: ");
+        scanf("%d", &y);
+    
+    if (x == y) {
+        printf("\nNumerot ovat yhtäsuuria!");
+    }
+    else printf("\nNumerot eivät ole yhtä suuria. Aja minut uudestaan.");
+    */
+    
+//Answer
+
+/*
+#include<stdio.h>
+int main() {
+int x, y;
+printf("\nEnter the first number: ");
+scanf ("%d", &x);
+printf("\nEnter the second number: ");
+scanf ("%d", &y);
+if(x-y==0) {
+printf("\nThe two numbers are equivalent");
+}
+else {
+printf("\nThe two numbers are not equivalent");
+}
+return 0;
+}
+*/
+
+    //21. Write a program to print the remainder of two numbers entered by the user.
+
+    /*
+    printf("\nKatsotaanpa lukujen jako!");
+    int x, y, z;
+    printf("\nSyötä jaettava luku: ");
+        scanf("%d", &x);
+    printf("\nSyötä jakava luku: ");
+        scanf("%d", &y);
+    z = x%y;
+    printf("\nAntamistasi luvuista jäljelle jaon jälkeen jää %d.", z);
+    */
+
+//Answer
+
+/*
+#include<stdio.h>
+int main() {
+int a, b, c;
+printf("\nEnter the first number: ");
+scanf ("%d", &a);
+printf("\nEnter the second number: ");
+scanf ("%d", &b);
+c = a%b;
+printf("\n The remainder of %d and %d is: %d", a, b, c);
+return 0;
+}
+*/
+ 
+    //22. Write a program to print the characters from A to Z.
+
+    /*
+    char x;
+    printf("\nTulostetaan kirjaimet A ... Z\n");   
+    for (x = 'A'; x <= 'Z'; x++) {
+        printf("%c ", x);
+    }
+    */
+ 
+//Answer
+
+/*
+#include<stdio.h>
+int main() {
+char i;
+for(i='A'; i<='Z'; i++) {
+printf("%c\n", i);
+}
+return 0;
+}
+*/
+
+    //23. Write a program to print the length of the entered string.
+
+    /*
+    char x[100];
+    printf("\nSyötä sana ja lasken montako merkkiä syötteessä on: ");
+        scanf("%s", x);
+    printf("\nSyötteen %s pituus on: %ld merkkiä!", x, strlen(x));
+    */
+
+//Answer
+
+/*
+#include<stdio.h>
+#include<string.h>
+int main() {
+char str[1000];
+printf("Enter a string to calculate its length: ");
+scanf("%s", str);
+printf("The length of the entered string is: %ld", strlen(str));
+return 0;
+}
+*/
+
+    //24. Write a program to check whether the given character is a lower case letter or not.
+
+    /*
+    char x;
+    printf("\nTarkistetaan onko kirjain PIENI!");
+
+    printf("\nSyötä kirjain: ");
+        scanf("%c", &x);
+    if (islower(x)){
+        printf("\nSyötetty kirjain on PIENI!");
+    }
+    else {
+        printf("\nSyötetty kirjain on iso.");
+    }
+    */
+
+//Answer
+
+/*
+#include<stdio.h>
+#include <ctype.h>
+int main() {
+char ch = 'a';
+if(islower(ch)) {
+printf("The given character is a lower case letter");
+}
+else {
+printf("The given character is a upper case letter");
+}
+return 0;
+}
+*/
+
+    //25. Write a program to check whether the given character is a upper case letter or not.
+
+    /*
+    char x;
+    printf("\nTarkistetaan onko kirjain ISO!");
+
+    printf("\nSyötä kirjain: ");
+        scanf("%c", &x);
+    if (isupper(x)){
+        printf("\nSyötetty kirjain on ISO!");
+    }
+    else {
+        printf("\nSyötetty kirjain on pieni.");
+    }
+    */
+
+//Answer
+
+/*
+#include<stdio.h>
+#include <ctype.h>
+int main() {
+char ch = 'A';
+if(isupper(ch)) {
+printf("The given character is a upper case letter");
+} 
+else {
+printf("The given character is a lower case letter");
+}
+return 0;
+}
+*/
+
+    //26. Write a program to convert the lower case letter to upper case letter.
+
+    /*
+    char x;
+
+    printf("\nMuutetaanpa PIENET kirjaimet isoiksi kirjaimiksi!");
+    printf("\nSyötä kirjain: ");
+        scanf("%c", &x);
+    printf("\nKirjain %c on nyt %c", x, toupper(x));
+    */
+
+//Answer
+
+/*
+#include<stdio.h>
+#include <ctype.h>
+int main() {
+char ch = 'a';
+char b = toupper(ch);
+printf("Lower case letter '%c' is converted to Upper case letter '%c'", ch, b);
+return 0;
+}
+*/
+
+    //27. Write a program that takes a distance in centimeters and outputs the corresponding value in inches.
+
+    /*
+    #define x 2.54
+
+    */
+    float x = 2.54;
+    float y;
+
+    y = x*0.3937;
+    printf("\nMuutetaan senttimetrit tuumiksi!");
+
+    
+
+ 
+
+   return 0;
+}
