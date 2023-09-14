@@ -825,21 +825,539 @@ return 0;
 }
 */
 
-    //27. Write a program that takes a distance in centimeters and outputs the corresponding value in inches.
+//27. Write a program that takes a distance in centimeters and outputs the corresponding value in inches.
 
     /*
-    #define x 2.54
+    float x, y;
 
-    */
-    float x = 2.54;
-    float y;
-
-    y = x*0.3937;
     printf("\nMuutetaan senttimetrit tuumiksi!");
+    printf("\nSyötä senttimetrit: ");
+        scanf("%f", &x);
+    y = x / 2.54;
 
+    printf("\nSyöttämäsi %.2f senttimetriä on %.2f tuumaa!", x, y);
+    */
+
+//Answer
+
+/*
+#include<stdio.h> 
+#define x 2.54
+int main() {
+double inch, cm;
+printf("Enter the distance in cm: ");
+scanf("%lf", &cm);
+inch = cm / x;
+printf("\nDistance of %0.2lf cms is equal to %0.2lf inches", cm, inch);
+return 0;
+}
+*/
+
+    //28. Write a program to print the output:
+    //Einstein [0] = E
+    //Einstein [1] = I
+    //Einstein [2] = N
+    //Einstein [3] = S
+    //Einstein [4] = T
+    //Einstein [5] = E
+    //Einstein [6] = I
+    //Einstein [7] = N
+
+    /*
+    char nimi[8] = {'E', 'I', 'N', 'S', 'T', 'E', 'I', 'N'};
+
+    for(int e = 0; e < 8; e++){
+        printf("\nEinstein %d = %c ", e, nimi[e]);
+    }
+    */
+
+//Answer
+
+/*
+#include<stdio.h>
+int main() {
+char name [8] = {'E' , 'I', 'N', 'S', 'T', 'E', 'I', 'N'};
+for(int i=0; i<8; i++) {
+printf("\nEinstein [%d] = %c", i, name[i]);
+}
+return 0;
+}
+*/
+
+    //29. Write a program to print "Hello World" 10 times.
+
+    /*
+    printf("\nKirjoitetaanpas 'Hello World' 10 kertaa!");
+
+    for(int h = 1; h <= 10; h++){
+        printf("\nHello World");
+    }
+    */
+
+//Answer
+
+/*
+#include<stdio.h>
+int main() {
+for(int i=1; i<=10; i++) {
+printf("Hello World \n");
+}
+return 0;
+}
+*/
+
+    //30. Write a program to print first 5 numbers using do while loop statement.
+
+    /*
+    int x, y;
     
+    printf("\nTulostetaan viisi ensimmäistä numeroa!");
 
- 
+    printf("\nSyötä numero: ");
+        scanf("%d", &x);
+    y = x+5;
+
+    do {
+        printf("\n%d", x);
+        x++;
+    } while (x<=y);
+    */
+
+//Answer
+
+/*
+#include<stdio.h>
+int main() {
+int i =1;
+do {
+printf("%d\n", i++);
+} while(i<=5);
+return 0;
+}
+*/
+    
+    //31. Write a program to check whether a character is an alphabet or not.
+
+    /*
+    int x;
+
+    printf("\nSyötä kirjain tai numero: ");
+        scanf("%c", &x);
+    if(isalpha(x)){
+        printf("\nSyötit kirjaimen!");
+    }
+    else{
+        printf("\nSyötit numeron!");
+    }
+    */
+    
+//Answer
+
+/*
+#include<stdio.h>
+#include<ctype.h>
+int main() {
+int a =2;
+if(isalpha(a)) {
+printf("The character a is an alphabet");
+}
+else {
+printf("The character a is not an alphabet");
+}
+return 0;
+}
+*/
+
+    //32. Write a program to check whether a entered number is even or odd.
+
+    /*
+    int x;
+
+    printf("\nKatsotaan onko numero parillinen vai pariton!");
+    printf("\nSyötä numero: ");
+        scanf("%d", &x);
+    if (x%2 == 0){
+        printf("\nSyöttämäsi numero on parillinen!");
+    }
+    else{
+        printf("\nSyöttämäsi numero on pariton!");
+    }
+    */
+
+//Answer
+
+/*
+#include<stdio.h>
+int main() {
+int a;
+printf("Enter any number: ");
+scanf ("%d", &a);
+if(a%2 == 0) {
+printf("The entered number is even");
+}
+else {
+printf("The entered number is odd");
+}
+return 0;
+}
+*/
+
+    //33. Write a program to print the ASCII value of the given character.
+
+    /*
+    char x;
+
+    printf("\nTulostetaanpa kirjaimen ASCII arvo!");
+
+    printf("\nSyötä kirjain: ");
+        scanf("%c", &x);
+    printf("\nSyöttämäsi kirjaimen %c ASCII arvo on %d", x, x);
+    */   
+
+//Answer
+
+/*
+#include<stdio.h>
+int main() {
+char ch ='A';
+printf("The ASCII value of %c is: %d", ch, ch);
+return 0;
+}
+*/
+
+    //34. Write a program that will print all numbers between 1 to 50 which 
+    //divided by a specified number and the remainder will be 2.
+
+    /*
+    int x, y;
+
+    printf("\nSyötä numero: ");
+        scanf("%d", &x);
+    for(int y = 1; y <= 50; y++){
+        if ((y%x) == 2){
+            printf("\n%d", y);
+        }
+    }
+    */
+
+//Answer
+
+/*
+#include<stdio.h>
+int main() {
+int x, i;
+printf("Enter a number: ");
+scanf("%d", &x);
+for(i=1; i<=50; i++) {
+   if((i%x)==2) {
+    printf("%d\n", i);
+	 }
+}
+return 0;
+}
+*/
+
+    //35. Write a program to determine whether two numbers in
+    // a pair are in ascending or descending order.
+
+    /*
+    int x, y;
+
+    printf("\nKatsotaanpa ovatko numerot nousevia vai laskevia!");
+
+    printf("\nSyötä ensimmäinen luku: \n");
+        scanf("%d", &x);
+    printf("\nSyötä toinen luku: \n");
+        scanf("%d", &y);
+    
+    if (x > y){
+        printf("\nSyöttöjen perusteella numerot ovat laskevia!");
+    }
+    else if (x < y){
+        printf("\nSyöttöjen perusteella numerot ovat nousevia!");
+    }
+    else{
+        printf("\nVirhe havaittu! Numerot ovat saman kokoiset!!!!");
+    }
+    */
+
+//Answer
+
+/*
+#include<stdio.h>
+int main() {
+int a, b;
+printf("\nEnter a pair of numbers (for example 22,12 | 12,22): ");
+printf("\nEnter the first number: ");
+scanf("%d", &a);
+printf("\nEnter the second number: ");
+scanf("%d", &b);
+if (a>b) {
+printf("\nThe two numbers in a pair are in descending order.");
+}
+else {
+printf("\nThe two numbers in a pair are in ascending order.");
+}
+return 0;
+} 
+*/
+
+    //36. Write a program that reads two numbers and divides one by the other. 
+    // Specify "Division not possible" if that is not possible.
+
+    /*
+    int x, y;
+
+    printf("\nSyötä ensimmäinen luku: ");
+        scanf("%d", &x);
+    printf("\nSyötä toinen luku: ");
+        scanf("%d", &y);
+
+    if (x/y != 0){
+        printf("\n%d jaettuna %d on %.1f", x, y, x/y);
+        
+    }
+    else {
+        printf("\nLASKUTOIMITUS EI OLE MAHDOLLINEN!!!!");
+    }
+    */
+   
+//Answer
+
+/*
+#include<stdio.h>
+int main() {
+int a, b;
+float c;
+printf("\nEnter the first number: ");
+scanf("%d", &a);
+printf("\nEnter the second number: ");
+scanf("%d", &b);
+if(b != 0) {
+   	c = (float)a/(float)b;
+	printf("\n%d/%d = %.1f", a, b, c);
+} 
+else {
+	 printf("\nDivision not possible.\n");
+}
+return 0;
+}
+*/
+
+    //37. Write a program that will print all numbers between 1 to 50 
+    // which divided by a specified number and the remainder is equal to 2 or 3.
+    
+    /*
+    int x, y;
+    printf("\nSyötä jakaja luku: ");
+        scanf("%d", &x);
+
+    for (y=1; y <= 50; y++){
+        if ((y%x)==2 || (y%x)==3){
+            printf("\n%d", y);
+        }
+    }
+    */
+   
+//Answer
+
+/*
+#include<stdio.h>
+int main() {
+int x, i;
+printf("Enter a number: ");
+scanf("%d", &x);
+for(i=1; i<=50; i++) {
+   if((i%x)==2 || (i%x) == 3) {
+    printf("%d\n", i);
+	 }
+}
+return 0;
+}
+*/
+
+    //38. Write a program that adds up all numbers between 1 and 100 
+    // that are not divisible by 12.
+
+    /*
+    int x =12, y, z = 0;
+    printf("\nListataan kaikki 1 ... 100, jotka eivät ole jaettavissa luvulla 12!");
+    for (y=1; y<=100; y++){
+        if ((y%x) != 0){
+            z += y;
+        }
+    }
+    printf("\n %d \n", z);    
+    */
+
+//Answer
+
+/*
+#include<stdio.h>
+int main() {
+int x =12, i, sum = 0;
+for(i=1; i<=100; i++) {
+   if((i%x)!= 0) {
+    sum += i;
+	 }
+}
+printf("\nSum: %d\n", sum);
+return 0;
+}
+*/
+
+    //39. Write a program to calculate the value of x where x = 1 + 1/2 + 1/3 + … + 1/50.
+
+    /*
+    float x = 0;
+
+    for (int y = 1; y <= 50; y++){
+        x += (float)1/y;
+    }
+    printf("\nX:n arvo on %.2f", x);
+    */
+
+//Answer
+
+/*
+#include<stdio.h>
+int main() {
+float x = 0;
+for(int i=1; i<=50; i++) {
+   x += (float)1/i;
+}
+printf("Value of x: %.2f\n", x);
+return 0;
+}
+*/
+
+    //40. Write a program that reads a number and find all its divisor.
+
+    /*
+    int x, y;
+    printf("\nSyötä ensimmäinen luku: ");
+        scanf("%d", &x);
+    printf("\nLuvun %d jakajat ovat: \n", x);
+    for (y=1; y<=x; y++){
+        if ((x%y) == 0){
+            printf("\n%d", y);
+        }    
+    }
+    */
+
+//Answer
+
+/*
+#include<stdio.h>
+int main() {
+int x, i;
+printf("\nEnter a number: ");
+scanf("%d", &x);
+printf("All the divisor of %d are: ", x);
+for(i = 1; i <= x; i++) {
+    if((x%i) == 0) {
+	printf("\n%d", i);
+    }
+}	
+return 0;
+}
+*/
+
+    //41. Write a program to find the incremented and decremented values of two numbers.
+
+    /*
+    int x, y, a, b, c, d;
+    
+    printf("\nSyötä ensimmäinen luku: ");
+        scanf("%d", &x);
+    printf("\nSyötä toinen luku: ");
+        scanf("%d", &y);
+
+    a=x+1;
+    b=x-1;
+    c=y+1;
+    d=y-1;
+
+
+    printf("\nLuvuista seuraavat suuremmat ovat %d ja %d.", a, c);
+    printf("\nLuvuista seuraavat pienemmät ovat %d ja %d.", b, d);
+    */
+
+//Answer
+
+/*
+#include<stdio.h>
+int main() {
+int a, b, c, d, e, f;
+a = 10;
+b=12;
+c=a+1;
+d=b+1;
+e=a-1;
+f=b-1;
+printf("The incremented value of a =%d", c);
+printf("The incremented value of b =%d", d);
+printf("The decremented value of a =%d", e);
+printf("The decremented value of b =%d", f);
+return 0;
+}
+*/
+
+    //42. Write a program to find square of a entered number using functions.
+////////////////////////////////////////////////////////////////////
+    /*
+    int sqr();{
+        int x;
+
+        printf("\nSyötä numero: ");
+            scanf("%d", &x);
+        printf
+    }
+    */
+//////////////////////////////////////////////////////////////////////////
+//Answer
+
+ /*
+#include<stdio.h>
+int square();
+int main() {
+int answer;
+answer = square();
+printf("The square of the entered number is: %d", answer);
+return(0);
+}
+int square() {
+int x;
+printf("Enter any number: ");
+scanf("%d", &x);
+return x*x;
+}
+*/
+
+    //43. Write a program that accepts principal amount, rate of interest, 
+    // time and compute the simple interest.
+
+    /*
+    
+    */
+
+//Answer
+
+/*
+#include<stdio.h>
+int main() {
+int p,r,t,SI;
+printf("\nEnter the principal amount: ");
+scanf("%d",&p);
+printf("\nEnter the rate of interest: ");
+scanf("%d",&r);
+printf("\nEnter the time: ");
+scanf("%d",&t);
+SI=(p*r*t)/100;
+printf("\nSimple interest is: %d", SI);
+return 0;
+}
+*/ 
 
    return 0;
 }
