@@ -1338,7 +1338,23 @@ return x*x;
     // time and compute the simple interest.
 
     /*
+    //p= Pääoma
+    //k=korko
+    //a=aika
+    //yk=yksinkertainen korko
+
+    int p, k, a, yk;
+
+    printf("\nSyötä pääoma: ");
+        scanf("%d", &p);
+    printf("\nSyötä korko: ");
+        scanf("%d", &k);
+    printf("\nLisää aika: ");
+        scanf("%d", &a);
     
+    yk=(p*k*a)/100;
+
+    printf("\nYksinkertaisen koron määrä on: %d", yk);
     */
 
 //Answer
