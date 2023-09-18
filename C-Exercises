@@ -2,10 +2,33 @@
 #include <math.h>
 #include<string.h>
 #include <ctype.h>
+#include <stdlib.h>
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
--------------------------C-EXERCISES BASED ON https://github.com/manjunath5496/Beginner-C-Exercises/blob/master/README.md-------------------------
+//-------------------------C-EXERCISES BASED ON https://github.com/manjunath5496/Beginner-C-Exercises/blob/master/README.md-------------------------
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//ANSWER IS NOT NECESSARULY THE RIGHT ANSWER. ANSWER IS HOW THE QUESTION'S CREATOR HAS ASNWERED TO THEM!
+
+/*
+kirjastot
+ja
+int main
+*/
+
+//Tehtävä numero ja anto
+/*
+Oma koodi
+*/
+
+/*
+Tehtävän mallikoodi
+*/
+
+/*
+return
+*/
+
 
 int main()
 {
@@ -1374,6 +1397,468 @@ printf("\nSimple interest is: %d", SI);
 return 0;
 }
 */ 
+
+    //44. Write a program that swaps two numbers without using third variable.
+
+    /*
+    int x, y;
+
+    printf("\nKäännetään syötöt x ja y muotoon y ja x!");
+
+    printf("\nSyötä ensimmäinen luku: ");
+        scanf("%d", &x);
+    printf("\nSyötä toinen luku: ");
+        scanf("%d", &y);
+
+    printf("\nSyötit luvut %d ja %d", x, y);
+    printf("\nWOOOOSH!!");
+    printf("\nNyt luvut ovat %d ja %d!", y, x);
+    */
+
+//Answer
+
+/*
+#include<stdio.h>
+int main() {
+int a, b;
+printf("\nEnter the value for a: ");
+scanf("%d",&a);
+printf("\nEnter the value for b: ");
+scanf("%d",&b);
+printf("\nBefore swapping: %d %d",a,b);
+a=a+b;
+b=a-b;
+a=a-b;
+printf("\nAfter swapping: %d %d",a,b);
+return 0;
+}
+*/
+
+    //45. Write a program to find the greatest of two entered numbers using pointers.
+
+    /*
+    int x, y;
+
+    printf("\nSyötä kaksi lukua ja katsotaan niistä suurempi!");
+
+    printf("\nSyötä ensimmäinen luku: ");
+        scanf("%d", &x);
+    printf("\nSyötä toinen luku: ");
+        scanf("%d", y);
+
+    if (x<y) {
+        printf("\nSyöttämistäsi luvuista %d on suurempi!", y);
+    }
+    else {
+        printf("\nSyöttämistäsi luvuista %d on suurempi!", x);
+    }
+    */
+    
+//Answer
+
+/*
+#include<stdio.h>
+int main() {
+int x, y, *p, *q;
+printf("Enter the value for x: ");
+scanf("%d", &x);
+printf("Enter the value for y: ");
+scanf("%d", &y);
+p = &x;
+q = &y;
+if(*p>*q) {
+printf("x is greater than y");
+}
+if(*q>*p) {
+printf("y is greater than x");
+}
+return 0;
+}
+*/
+
+    //46. Write a program to print the output:
+    // body [b] = b
+    // body [o] = o
+    // body [d] = d
+    // body [y] = y
+
+    /*
+    char k[4] = {'b', 'o', 'd', 'y'};
+
+    for(int x = 0; x < 4; x++)
+    printf("\nbody [%c] = %c", k[x], k[x]);
+    */
+    
+//Answer
+
+/*
+#include <stdio.h>
+int main() {
+char i;
+char body [4] = {'b', 'o', 'd', 'y'};
+for(i=0; i<4; i++)
+printf("\n body[%c] = %c", body[i] , body[i]);
+return 0;
+}
+*/
+
+    //47. Write a program to calculate the discounted price and the total price after discount
+    // Given:
+    // If purchase value is greater than 1000, 10% discount
+    // If purchase value is greater than 5000, 20% discount
+    // If purchase value is greater than 10000, 30% discount.
+
+    /*
+    int x;
+
+    printf("\nKatsotaan paljonko alennusta saa!!");
+
+    printf("\nSyötä hinta: ");
+        scanf("%d", &x);
+    if(1000 <= x && x <= 4999){
+        printf("\nHinta on: %d, saat 10%% alennusta, loppu hinta on: %.2f", x, x - x*0.1);
+    }
+    else if(5000 <= x && x <= 9999){
+        printf("\nHinta on: %d, saat 20%% alennusta, loppu hinta on: %.2f", x, x - x*0.2);
+    }
+    else if(10000 <= x){
+        printf("\nHinta on: %d, saat 30%% alennusta, loppu hinta on: %.2f", x, x - x*0.3);
+    }
+    else{
+        printf("\nHinta on liian pieni jotta saisit alennusts!");
+    }
+    */
+
+//Answer
+//THIS ANSWER MIGHT BE WRONG
+/*
+#include<stdio.h>
+int main() {
+double PV;
+printf("Enter purchased value: ");
+scanf("%lf", &PV);
+if(PV>1000) {
+printf("\n Discount = %lf", PV* 0.1);
+printf("\n Total = %lf", PV - PV* 0.1);
+}
+else if(PV>5000) {
+printf("\n Discount = %lf", PV* 0.2);
+printf("\n Total = %lf", PV - PV* 0.2);
+}
+else {
+printf("\n Discount = %lf", PV* 0.3);
+printf("\n Total = %lf", PV - PV* 0.3);
+}
+return 0;
+}
+*/
+
+    //48. Write a program to print the first ten natural numbers using while loop statement.
+
+    /*
+    int x = 1;
+
+    while (x <= 10){
+        printf("\n%d", x++);
+    }
+    */
+    
+//Answer
+
+/*
+#include<stdio.h>
+int main() {
+int i = 1;
+while (i<=10) {
+printf("%d\n", i++);
+}
+return 0;
+}
+*/
+    
+    //49. Write a program to shift inputted data by two bits to the left.
+
+    /*
+    int x;
+
+    printf("\nSyötä luku: ");
+        scanf("%d", &x);
+    printf("%d", x<<=2);
+    */
+
+//Answer
+
+/*
+#include<stdio.h>
+int main() {
+int x;
+printf("Enter the integer from keyboard: ");
+scanf("%d",&x);
+printf("\nEntered value: %d ",x);
+printf("\nThe left shifted data is: %d ", x<<=2);
+return 0;
+}
+*/
+    
+    //50. Write a program to shift inputted data by two bits to the Right.
+
+    /*
+    int x;
+
+    printf("\nSyötä luku: ");
+        scanf("%d", &x);
+    printf("%d", x>>=2);
+    */
+
+//Answer
+
+/*
+#include<stdio.h>
+int main() {
+int x;
+printf("Enter the integer from keyboard: ");
+scanf("%d",&x);
+printf("\nEntered value: %d ",x);
+printf("\nThe right shifted data is: %d ", x>>=2);
+return 0;
+}
+*/
+
+    //51. Write a program to calculate the exact difference between x and 21. Return three times the absolute difference if x is greater than 21.
+
+    /*
+    int x, y=21, z;
+
+    printf("\nSyötä numero: ");
+        scanf("%d", &x);
+    if (x <= 21){
+        printf("\nEro luvun %d ja luvun 21 välillä on: %d", x, 21-x);
+    }
+    else{
+        printf("\nEro luvun %d ja luvun 21 välillä on: %d", x, x-21);
+    }
+    */
+
+//Answer
+
+/*
+#include<stdlib.h>
+#include<stdio.h>
+int main() {
+int x;
+printf("Enter the value for x: ");
+scanf("%d",&x);
+if(x<=21){
+    printf("%d",abs(x-21));
+ }
+else if(x>=21) {
+    printf("%d",abs(x-21)*3);
+}
+return 0;
+}
+*/
+
+    //52. Write a program that reads in two numbers and determine whether the first number is a multiple of the second number.
+
+    /*
+    int x, y;
+
+    printf("\nSyötä ensimmäinen luku: ");
+        scanf("%d", &x);
+    printf("\nSyötä toinen luku: ");
+        scanf("%d", &y);
+    
+    if (x%y==0){
+        printf("\nLuku %d on luvun %d kerrannainen", x, y);
+    }
+    else{
+        printf("\nLuku %d ei ole luvun %d kerrannainen", x, y);
+    }
+    */
+
+//Answer
+
+/*
+int x, y;
+printf("\nEnter the first number: ");
+scanf("%d", &x);
+printf("\nEnter the second number: ");
+scanf("%d", &y);
+if(x % y == 0) {
+printf("\n%d is a multiple of %d.\n", x, y);
+}
+else {
+printf("\n%d is not a multiple of %d.\n", x, y);
+}   
+*/
+
+    //53. Write a program to print the output:
+    // Name of the book = B
+    // Price of the book = 135.00
+    // Number of pages = 300
+    // Edition of the book = 8
+    // using structures.
+
+    /*
+    int s = 300;
+    int v = 8;
+    float h = 135.00;
+    char n = 'B';
+
+    printf("\nKirjan nimi: %c", n);
+    printf("\nKirjan hinta: %.2f", h);
+    printf("\nSivumäärä: %d", s);
+    printf("\nKirjan versio: %d", v);
+    */
+    
+//Answer
+
+/*
+#include<stdio.h>
+int main() {
+struct book {
+char name;
+float price;
+int pages;
+int edition;
+};
+struct book b1;
+b1.name = 'B';
+b1.price = 135.00;
+b1.pages = 300;
+b1.edition = 8;
+printf("\n Name of the book = %c", b1.name);
+printf("\n Price of the book = %f", b1.price);
+printf("\n Number of pages = %d", b1.pages);
+printf("\n Edition of the book = %d", b1.edition);
+return 0;
+}
+*/
+
+    //54. Write a program to convert Celsius into Fahrenheit.
+
+    /*
+    int c = 0;
+    float f = 0;
+
+    printf("\nAnna lämpötila Celsius asteina: ");
+    scanf("%d", &c);
+    f = c * 1.8 + 32 ;
+    printf("\nLämpötila on %.1f astetta fahrenheitia", f);
+    */
+
+//Answer
+
+/*
+#include<stdio.h>  
+int main() {   
+float fahrenheit, celsius;  
+celsius = 36;  
+fahrenheit = ((celsius*9)/5)+32;  
+printf("\nTemperature in fahrenheit is:  %f",fahrenheit);  
+return 0;  
+}
+*/
+
+    //55. Write a program that will examine two inputted integers and return true if either of them is 50 or if their sum is 50.
+
+    /*
+    int x, y;
+    
+    printf("\nSyötä ensimmäinen luku: ");
+        scanf("%d", &x);
+    printf("\nSyötä toinen luku: ");
+        scanf("%d", &y);
+    
+    if (x == 50 || y == 50){
+        printf("\nTrue");
+    }
+    else {
+        printf("\nFalse");
+    }
+    */
+    
+//Answer
+
+/*
+#include<stdio.h>
+int main() {
+int x, y; 
+printf("\nEnter the value for x: ");
+scanf("%d", &x);
+printf("\nEnter the value for y: ");
+scanf("%d", &y);
+if(x == 50 || y == 50 || (x + y == 50)) {
+    printf("\nTrue");
+} 
+else {
+    printf("\nFalse");
+}    
+return 0;
+}
+*/
+
+    //56. Write a program that counts the even, odd, positive, and negative values among eighteen integer inputs.
+
+    /*
+    //x syötettävä luku, n negatiivinen, p positiivinen, t (parillinen)tasaluku, e (pariton)epätasaluku, l lukuja
+    int x, y, n=0, p=0, t=0, e=0;
+
+    printf("\nSyötä numeroiden määrä: ");
+        scanf("%d", &y);
+    printf("\nSyötä numeroita: ");
+    
+    for(int l=0; l < y; l++){
+        scanf("%d", &x);
+    if (x < 0){
+        n++;
+    }
+    if(x > 0){
+        p++;
+    }
+    if(x % 2 == 0){
+        t++;
+    }
+    if(x % 2 != 0){
+        e++;
+    }
+    }
+    printf("\nSyötetyistä numeroista negatiivisiä on: %d", n);
+    printf("\nSyötetyistä numeroista positiivisia on: %d", p);
+    printf("\nSyötetyistä numeroista parillisia on: %d", t);
+    printf("\nSyötetyistä numeroista parittomia on: %d", e);
+    */
+
+//Answer
+
+/*
+#include<stdio.h>
+int main () {
+int x, even = 0, odd = 0, positive = 0, negative = 0;
+printf("\nPlease enter 18 numbers:\n");
+for(int i = 0; i < 18; i++) {
+scanf("%d", &x);
+if (x > 0) {
+    positive++;
+}
+if(x < 0) {
+    negative++;
+}
+if(x % 2 == 0) {
+    even++;
+}
+if(x % 2 != 0) {
+    odd++;
+}
+}
+printf("\nNumber of even values: %d", even);
+printf("\nNumber of odd values: %d", odd);
+printf("\nNumber of positive values: %d", positive);
+printf("\nNumber of negative values: %d", negative);
+return 0;
+}
+*/
+
 
    return 0;
 }
