@@ -1,0 +1,198 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+//Based on exericese on: https://www.w3resource.com/c-programming-exercises/pointer/index.php
+
+int main(void){
+
+/*
+1. Write a program in C to show the basic declaration of a pointer.
+Expected Output :
+
+ Pointer : Show the basic declaration of pointer :                                                            
+-------------------------------------------------------                                                       
+ Here is m=10, n and o are two integer variable and *z is an integer                                          
+                                                                                                              
+ z stores the address of m  = 0x7ffd40630d44                                                                  
+                                                                                                              
+ *z stores the value of m = 10                                                                                
+                                                                                                              
+ &m is the address of m = 0x7ffd40630d44                                                                      
+                                                                                                              
+ &n stores the address of n = 0x7ffd40630d48                                                                  
+                                                                                                              
+ &o  stores the address of o = 0x7ffd40630d4c                                                                 
+                                                                                                              
+ &z stores the address of z = 0x7ffd40630d50
+*/
+
+/*
+    //Asetetaan osoittaja m arvoksi 10 ja lisätään muuttujat n ja o
+    int m=10,n,o;
+    //Lisätään osoittaja z muuttujalle m
+    int *z=&m;
+ 
+    //Tulostetaan osoittaja z osoite %p
+    printf("\nz tallentaa m osoitteen = %p\n",  z);
+    //
+    printf("\nosoittaja z tallentaa m arvon = %i\n", *z);
+    //&m antaa osoitteen integer muuttujalle m
+    printf("\n&m on m osoite = %p", &m);
+    //
+    printf("\n&n tallentaa n osoitteen = %p\n", &n);
+    //
+    printf("\n&o tallentaa o osoitteen = %p\n", &o);
+    //
+    printf("\n&z tallentaa z osoitteen = %p\n\n", &z);
+*/
+
+/*
+//ANSWER
+
+#include <stdio.h>
+void main(void)
+{
+int m=10,n,o;
+int *z=&m ;
+
+	printf("\n\n Pointer : Show the basic declaration of pointer :\n");
+	printf("-------------------------------------------------------\n"); 
+	printf(" Here is m=10, n and o are two integer variable and *z is an integer");	
+	printf("\n\n z stores the address of m  = %p\n",  z); // z is a pointer so %p would print the address
+	printf("\n *z stores the value of m = %i\n",   *z); 
+	printf("\n &m is the address of m = %p\n",   &m); // &m gives the address of the integer variable m 
+                             // so %p is the specifier for that address
+	printf("\n &n stores the address of n = %p\n",   &n);
+	printf("\n &o  stores the address of o = %p\n",   &o);
+	printf("\n &z stores the address of z = %p\n\n", &z); // &z gives the address, where the pointer z is 
+                             // stored -> still an address -> %p is the right
+                             // specifier        
+}
+*/
+
+
+/*
+Write a program in C to demonstrate how to handle pointers in a program.
+Expected Output :
+
+Address of m : 0x7ffcc3ad291c
+Value of m : 29                                                                                              
+                                                                                                              
+Now ab is assigned with the address of m.                                                                    
+Address of pointer ab : 0x7ffcc3ad291c                                                                       
+Content of pointer ab : 29                                                                                   
+                                                                                                              
+The value of m assigned to 34 now.                                                                           
+Address of pointer ab : 0x7ffcc3ad291c                                                                       
+Content of pointer ab : 34                                                                                   
+                                                                                                              
+The pointer variable ab is assigned with the value 7 now.                                                    
+Address of m : 0x7ffcc3ad291c                                                                                
+Value of m : 7 
+*/
+
+/*
+    //määritetään muuttuja m ja annetaan arvo 29
+    int m=29;
+    //määritetään ab ja osoitetaan se m osoitteeseen
+    int *ab=&m;
+    //tehdään x joka lisää lukuun 29 5 jotta saadaan luku 34
+    int x=5;
+    int sum;
+
+
+    printf("\nm osoite on: %p", &m);
+    printf("\nm arvo on: %d\n", m);
+
+    printf("\nab osoittimen osoite on: %p", &ab);
+    printf("\nosoittajan ab sisältö on: %d\n", m);
+
+    sum = x + m;
+
+    printf("\nNyt m arvo on 34");
+    printf("\nosoittajan ab osoite on: %p", &sum);
+    printf("\nosoittajan ab sisältö on: %d\n", sum);
+
+    ab = 7;
+
+    printf("\nNyt osoittaja muutujan ab arvo on 7");
+    printf("\nm osoite on: %p", &ab);
+    printf("\nm arvo on: %d\n", ab);
+*/
+
+/*
+//ANSWER
+
+#include <stdio.h>
+int main()
+{
+   int* ab;
+   int m;
+   m=29;
+    printf("\n\n Pointer : How to  handle the pointers in the program :\n"); 
+    printf("------------------------------------------------------------\n");
+    printf(" Here in the declaration ab = int pointer, int m= 29\n\n");
+    
+   printf(" Address of m : %p\n",&m);
+   printf(" Value of m : %d\n\n",m);
+   ab=&m;
+   printf(" Now ab is assigned with the address of m.\n");
+   printf(" Address of pointer ab : %p\n",ab);
+   printf(" Content of pointer ab : %d\n\n",*ab);
+   m=34;
+   printf(" The value of m assigned to 34 now.\n");
+   printf(" Address of pointer ab : %p\n",ab);
+   printf(" Content of pointer ab : %d\n\n",*ab);
+   *ab=7;
+   printf(" The pointer variable ab is assigned the value 7 now.\n");
+   printf(" Address of m : %p\n",&m);//as ab contain the address of m
+                                     //so *ab changed the value of m and now m become 7
+   printf(" Value of m : %d\n\n",m);
+   return 0;
+}
+*/
+
+
+/*
+3. Write a program in C to demonstrate the use of the &(address of) and *(value at address) operators.
+Expected Output :
+
+Pointer : Demonstrate the use of & and * operator :                                                          
+--------------------------------------------------------                                                      
+ m = 300                                                                                                      
+ fx = 300.600006                                                                                              
+ cht = z                                                                                                      
+                                                                                                              
+ Using & operator :                                                                                           
+-----------------------                                                                                       
+ address of m = 0x7ffda2eeeec8                                                                                
+ address of fx = 0x7ffda2eeeecc                                                                               
+ address of cht = 0x7ffda2eeeec7                                                                              
+                                                                                                              
+ Using & and * operator :                                                                                     
+-----------------------------                                                                                 
+ value at address of m = 300                                                                                  
+ value at address of fx = 300.600006                                                                          
+ value at address of cht = z                      
+
+Using only pointer variable :                                                                                
+----------------------------------                                                                            
+ address of m = 0x7ffda2eeeec8                                                                                
+ address of fx = 0x7ffda2eeeecc                                                                               
+ address of cht = 0x7ffda2eeeec7                                                                              
+                                                                                                              
+ Using only pointer operator :                                                                                
+----------------------------------                                                                            
+ value at address of m = 300                                                                                  
+ value at address of fx= 300.600006                                                                           
+ value at address of cht= z
+*/
+
+
+
+
+
+
+
+
+}
