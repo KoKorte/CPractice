@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 //Based on exericese on: https://www.w3resource.com/c-programming-exercises/pointer/index.php
+int summa( int*, int*);
 
 int main(void){
 
@@ -69,10 +70,10 @@ int *z=&m ;
                              // specifier        
 }
 */
-
+//////////////////////////////////////////////////////////////
 
 /*
-Write a program in C to demonstrate how to handle pointers in a program.
+2. Write a program in C to demonstrate how to handle pointers in a program.
 Expected Output :
 
 Address of m : 0x7ffcc3ad291c
@@ -151,7 +152,7 @@ int main()
    return 0;
 }
 */
-
+/////////////////////////////////////////////////////////////////
 
 /*
 3. Write a program in C to demonstrate the use of the &(address of) and *(value at address) operators.
@@ -188,11 +189,187 @@ Using only pointer variable :
  value at address of cht= z
 */
 
+/*
+    //tehdään int muuttuja m jonka arvo on 300
+    int m=300;
+    //tehdään float muuttuja fx jonka arvo on 300.600006
+    float fx=300.600006;
+    //tehdään charr cht jonka merkki on z
+    char cht = 'z';
 
+    //luodaan osoittimet muuttujille
+    int *x;
+    float *y; 
+    char *z;
 
+    x=&m;
+    y=&fx;
+    z=&cht;
 
+    //tulostetaan tehdyt muuttujat ja niiden arvot
+    printf("\nm = %d", m);
+    printf("\nfx = %f", fx);
+    printf("\ncht = %c\n", cht);
 
+    //tulostetaan ensin käyttämällä & operaattoria
+    printf("\nm = %p", &m);
+    printf("\nfx = %p", &fx);
+    printf("\ncht = %p\n", &cht);
 
+    //tulostetaan käyttämällä & ja * operaattoreita
+    printf("\nm = %d", *(&m));
+    printf("\nfx = %f", *(&fx));
+    printf("\ncht = %c\n", *(&cht));
+  
+    //tulostetaan käyttämällä vain osoitin muuttujaa
+    printf("\nm = %p", x);
+    printf("\nfx = %p", y);
+    printf("\ncht = %p\n", z);
 
+    //tulostetaan käyttämällä vain osoitin operaattoria
+    printf("\nm = %d", *x);
+    printf("\nfx = %f", *y);
+    printf("\ncht = %c\n", *z);
+*/
 
+/*
+//Answer
+
+#include <stdio.h>
+void main()
+{
+  int m=300;
+  float fx = 300.60;
+  char cht = 'z';
+  
+   printf("\n\n Pointer : Demonstrate the use of & and * operator :\n"); 
+   printf("--------------------------------------------------------\n");
+
+ 
+  int *pt1;
+  float *pt2;
+  char *pt3;
+  pt1= &m;
+  pt2=&fx;
+  pt3=&cht;
+  printf ( " m = %d\n",m);
+  printf ( " fx = %f\n",fx);
+  printf ( " cht = %c\n",cht);
+  printf("\n Using & operator :\n"); 
+  printf("-----------------------\n");  
+  printf ( " address of m = %p\n",&m);
+  printf ( " address of fx = %p\n",&fx);
+  printf ( " address of cht = %p\n",&cht);
+  printf("\n Using & and * operator :\n"); 
+  printf("-----------------------------\n"); 
+  printf ( " value at address of m = %d\n",*(&m));
+  printf ( " value at address of fx = %f\n",*(&fx));
+  printf ( " value at address of cht = %c\n",*(&cht));
+  printf("\n Using only pointer variable :\n"); 
+  printf("----------------------------------\n"); 
+  printf ( " address of m = %p\n",pt1);
+  printf ( " address of fx = %p\n",pt2);
+  printf ( " address of cht = %p\n",pt3);
+  printf("\n Using only pointer operator :\n"); 
+  printf("----------------------------------\n"); 
+  printf ( " value at address of m = %d\n",*pt1);
+  printf ( " value at address of fx= %f\n",*pt2);
+  printf ( " value at address of cht= %c\n\n",*pt3);
+}
+*/
+////////////////////////////////////////////////////////////////////
+
+/*
+4. Write a program in C to add two numbers using pointers.
+Test Data :
+Input the first number : 5
+Input the second number : 6
+Expected Output :
+
+The sum of the entered numbers is : 11 
+*/
+
+/*
+//luodaan muuttujat x ja y
+    int x=5;
+    int y=6;
+
+    //luodaan osoittimet muuttujille
+    int *eka;
+    int *toka;
+
+    //osoitetaan osoittajat muuttujiin
+    eka = &x;
+    toka = &y;
+
+    printf("\nEnsimmäinen numero on: %d", *eka);
+    printf("\nToinen numero on: %d", *toka);
+    printf("\nNäiden lukujen summa on: %d", *eka + *toka);
+*/
+    
+/*
+//Answer
+
+#include <stdio.h>
+int main()
+{
+   int fno, sno, *ptr, *qtr, sum;
+   
+   printf("\n\n Pointer : Add two numbers :\n"); 
+   printf("--------------------------------\n");   
+ 
+   printf(" Input the first number : ");
+   scanf("%d", &fno);
+   printf(" Input the second  number : ");
+   scanf("%d", &sno);   
+ 
+   ptr = &fno;
+   qtr = &sno;
+ 
+   sum = *ptr + *qtr;
+ 
+   printf(" The sum of the entered numbers is : %d\n\n",sum);
+ 
+   return 0;
+}
+*/
+//////////////////////////////////////////////////////////////////////////////
+
+/*
+5. Write a program in C to add numbers using call by reference.
+Test Data :
+Input the first number : 5
+Input the second number : 6
+Expected Output :
+
+ The sum of 5 and 6  is 11 
+*/
+
+/*
+
+*/
+    
+    //luodaan muuttujat x ja y sekä summa
+    int x=5, y=6;
+    int sum;
+
+    //luodaan muuttujille osoittimet a ja b esimerkiksi
+    int *a;
+    int *b;
+
+    a = &x;
+    b = &y;
+
+    sum = summa(&x, &y);
+
+    //tehdään funktio joka antaa seuraavalle funktiolle tarvittavat tiedot ja tulostaa sitten siinä lasketun summa
+    printf("\nLukujen %d ja %d summ on %d\n", *a, *b, sum);
+    return 0;
+
+    //tehdään funktio joka kutsuu aiemmin syötetyn datan ja laskee niiden summan
+    int summa(int (*a), int (*b)){
+        int sum;
+        sum = *a + * b;
+        return sum;
+    }
 }
