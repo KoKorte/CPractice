@@ -2308,13 +2308,47 @@ return 0;
 ///////////////////////////////////////////////////////////////////////////////////////////
 
 
-    //68. 
+    //68. Write a program to determine which of the two given integers is closest to the value 100.
+    // If the two numbers are equal, return 0.
+
+    /*
+    
+    */
+
+    //Luodaan int muuttujat kahdelle kokonaisluvulle
+    int x, y;
+
+    //Luodaan osoittimet a ja b
+    int* a;
+    a = &x;
+    int* b;
+    b = &y;
+
+    //Käyttäjä antaa arvot osoittimille a ja b jotka antavat arvot muuttujille
+    // x ja y
+    printf("\nAnna luvut: ");
+        scanf("%d %d", a, b);
+
+do
+{
+    if (*a >  0 && *b > 0)
+    {
+        printf("\nOIKEIN");
+        break;
+    }
+    else
+    {
+        printf("\n%s", VIRHE);
+            scanf("%d %d", a, b);
+    }
+} while (*a >  0 && *b > 0);
 
 
+ //   printf(VIRHE);
+  //  printf("\n%d ja %d\n", *a, *b);
 
-
-
-
+   return 0;
+}
 
    return 0;
 }
