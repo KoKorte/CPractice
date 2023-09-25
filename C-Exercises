@@ -1859,6 +1859,444 @@ return 0;
 }
 */
 
+    //57. Write a program to check whether the person is a senior citizen or not.
+
+    /*
+    //tehdään muuttuja ikä
+    int ika;
+
+    printf("\nSyötä ikä: ");
+        scanf("%d", &age);
+
+    //tehdään if else jolla katsotaan onko henkilö seniori vai ei
+    if (x >= 05)
+    {
+        printf("\nHenkilö on seniori kansalainen.");
+    }
+    else 
+    {
+        printf("\nHenkilö ei ole seniorikansalainen.");
+    }
+    */
+    
+//ANSWER
+
+/*
+#include<stdio.h>
+int main() {
+int age;
+printf("Enter age: ");
+scanf("%d", &age);
+if(age>=60) {
+printf("Senior citizen");
+}
+else {
+printf("Not a senior citizen");
+}
+return 0;
+}
+*/
+
+    //58. Write a program that reads a student's three subject scores (0-100) and computes the average of those scores.
+
+    /*
+    //tehdään kolme muuttujaa ja keskiarvo
+    int x, y, z;
+    float kesk;
+
+    //tehdää kolmelle oppiaineelle pisteytyksen kerääminen
+    printf("\nSyötä ensimmäisen aineen pisteytys: ");
+        scanf("%d", &x);
+    printf("\nSyötä toisen aineen pisteytys: ");
+        scanf("%d", &y);
+    printf("\nSyötä kolmannen aineen pisteytys: ");
+        scanf("%d", &z);
+
+    //tehdään keskiarvolle toimivuus
+    kesk = (x + y + z)/3;
+
+    //tulostetaan aineiden keskiarvo
+    printf("\nAineiden keskiarvo on: %.2f", kesk);
+    */
+
+//ANSWER
+
+/*
+#include<stdio.h>
+int main() {
+float score, total_score = 0;
+int subject = 0;
+printf("Enter three subject scores (0-100):\n");
+while (subject != 3) {
+scanf("%f", &score);
+if(score < 0 || score > 100) {
+printf("Please enter a valid score.\n");
+}
+else {
+total_score += score;
+subject++;
+  }
+}
+printf("Average score = %.2f\n", total_score/3);
+return 0;
+} 
+*/
+
+    //59. What results would the following programs produce?
+
+    /*
+#include<stdio.h>
+int main() {
+for(int i=1; i<=5; i++) {
+if(i==3) {
+break;
+}
+printf("%d\n", i);
+}
+return 0;
+}    
+    */
+
+   /*
+   1
+   2
+   */
+
+//ANSWER
+
+/*
+1
+2
+*/
+
+    //60. Write a program to find the size of an array.
+
+    /*
+    //tehdään array
+    int myarray[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    
+    //tehdään arrayn koon laskeva muuttuja, joka saa arvon merkkijonon pituudesta
+    int x = sizeof(myarray) / sizeof(myarray[0]);
+
+    //tulostetaan muuttujan x arvo
+    printf("\nmyarray jonon pituus on %d", x);
+    */
+
+//ANSWER
+
+/*
+#include<stdio.h>
+int main() {
+int num [] = {11, 22, 33, 44, 55, 66};
+int n = sizeof(num) / sizeof(num [0]);
+printf("Size of the array is: %d\n", n);
+return 0;
+}
+*/
+
+    //61. Write a program that prints a sequence from 1 to a given integer, 
+    // inserts a plus sign between these numbers, 
+    // and then removes the plus sign at the end of the sequence.
+
+    /*
+    //luodaan muuttujat x ja y
+    int x, y;
+
+    //
+    printf("\nSyötä numero: ");
+        scanf("%d", &x);
+
+    //
+    if (x > 0)
+    {   
+        for (y = 1; y < x; y++)
+        {
+            printf("%d + ", y);
+        }
+        printf("%d", y);
+    }
+    */
+
+//ANSWER
+
+/*
+#include<stdio.h>
+int main () {
+int x, i;
+printf("\nEnter a integer: \n");
+scanf("%d", &x);
+if(x>0) {
+printf("Sequence from 1 to %d:\n", x);
+for(i=1; i<x; i++)  {
+printf("%d+", i);
+}
+printf("%d\n", i);
+}
+return 0;
+}
+*/
+
+    //62. Write a program to verify whether a triangle's three sides 
+    // form a right angled triangle or not.
+
+    /*
+    //luodaan muuttujat kolmion kaikille sivuille
+    int a, b, c;
+
+    //kysytään kolmion sivujen pituudet
+    printf("\nAnna sivujen pituudet: ");
+        scanf("%d %d %d", &a, &b, &c);
+
+    //tarkistetaan onnistuuko kolmio. kahden sivun summan on aina oltava yhtäpaljon kuin
+    // kolmannen sivun
+    if (a + b == c || b + c == a || a + c == b || a == b == c)
+    {
+        printf("\nKolmion sivujen pituudet mahdollistavat kolmion muodostamisen");
+    }
+    else
+    {
+        printf("\nAntamasi sivujen perusteella kolmiota ei voida muodostaa.");
+    }
+    */
+
+//ANSWER
+
+/*
+#include<stdio.h>
+int main() {
+int a,b,c;
+printf("Enter the three sides of a triangle: \n");
+scanf("%d %d %d",&a,&b,&c);  
+if((a*a)+(b*b)==(c*c) || (a*a)+(c*c)==(b*b) || (b*b)+(c*c)==(a*a)) {  
+printf("Triangle's three sides form a right angled triangle.\n");  
+}
+else { 
+printf("Triangle's three sides does not form a right angled triangle.\n"); 
+}
+return 0;
+}
+*/
+
+    //63.Write a program that will find the second-largest 
+    // number among the user's input of three numbers.
+
+    /*
+    //luodaan kolme muuttujaa x, y ja z
+    int x, y, z;
+    
+    //kysytään käyttäjältä kolme lukua
+    printf("\nAnna kolme lukua: ");
+        scanf("%d %d %d", &x, &y, &z);
+
+    //etsitään toiseksi suurin luku if else lausekkeella
+    if(x > y && x > z)
+    {
+        if(y > z)
+        {
+            printf("\nToiseksi suurin luku on %d", y);
+        }
+        if (z > y && z < x)
+        {
+            printf("\nToiseksi suurin luku on %d", z);
+        }
+    }
+    if(x < y && x > z)
+    {
+        printf("\nToiseksi suurin luku on %d", x);
+    }
+    */
+
+//ANSWER
+
+/*
+#include<stdio.h>
+int main() {
+int a, b, c;
+printf("\nEnter the first number: ");
+scanf("%d", &a);
+printf("\nEnter the second number: ");
+scanf("%d", &b);
+printf("\nEnter the third number: ");
+scanf("%d", &c);
+if(a>b && a>c) {
+    if(b>c)
+            printf("\n%d is second largest number among three numbers", b);
+        else
+            printf("\n%d is second largest number among three numbers", c);
+}
+else if(b>c && b>a) {
+    if(c>a)
+            printf("\n%d is second largest number among three numbers", c);
+        else
+            printf("\n%d is second largest number among three numbers", a);
+}
+else if(a>b)
+            printf("\n%d is second largest number among three numbers", a);
+        else
+            printf("\n%d is second largest number among three numbers", b);
+    return 0;
+}
+*/
+
+    //64. Write a program to calculate the sum of the two given integer values. 
+    // Return three times the sum of the two values if they are equal.
+
+    /*
+    //luodaan muuttujat kahdelle luvulle sekä summalle
+    int x, y, sum;
+
+    //annetaan kahdelle muuttujalle arvot
+    printf("\nAnna kaksi lukua: ");
+        scanf("%d %d", &x, &y);
+
+    sum = x + y;
+
+    if (x == y)
+    {
+        printf("\n%d", sum * 3);
+    }
+    else
+    {
+        printf("\n%d", sum);
+    }
+    */
+
+//ANSWER
+
+/*
+#include<stdio.h>
+int myfunc();
+int main() {
+printf("%d", myfunc(3, 5));
+printf("\n%d", myfunc(6, 6));
+return 0;
+}    
+int myfunc(int a, int b) {
+return a == b ? (a + b)*3 : a + b;
+}
+*/
+
+    //65. Write a program that accepts minutes as input, 
+    // and display the total number of hours and minutes.
+
+    /*
+    //annetaan muuttujat minuuteille ja tunneille
+    int m, h;
+
+    //kysytään käyttäjältä minuutit
+    printf("\nAnna minuutit: ");
+        scanf("%d", &m);
+
+    //muutetaan minuutit tunneiksi ja minuuteiksi
+    h = m / 60;
+    m = m % 60;
+
+    //tulostetaan minuutit ja tunnit
+    printf("\n%d tuntia ja %d minuuttia", h, m);
+    */
+
+//ANSWER
+
+/*
+#include<stdio.h>
+int main() {
+int mins, hrs;
+printf("Input minutes: ");
+scanf("%d",&mins);
+hrs=mins/60;
+mins=mins%60;
+printf("\n%d Hours, %d Minutes.\n", hrs, mins);
+return 0;
+}
+*/
+
+    //66. Write a program to determine whether a positive number 
+    // entered by the user is a multiple of three or five.
+
+    /*
+    //luodaan muuttuja x
+    int x;
+
+    //kysytään käyttäjältä luku
+    printf("\nSyötä luku: ");
+        scanf("%d", &x);
+
+    //tarkistetaan onko numero jaettavissa luvuilla 3 tai 5
+    if (x % 3 == 0 || x % 5 == 0)
+    {
+        printf("\nNumero on jaollinen kolmella tai viidellä");
+    }
+    else
+    {
+        printf("\nNumero ei ole jaollinen kolmella eikä viidellä");
+    }
+    */
+    
+//ANSWER
+
+/*
+#include<stdio.h>
+int main() {
+int x;
+printf("\nEnter a number: ");
+scanf("%d", &x);    
+if(x % 3 == 0 || x % 5 == 0) {
+printf("True");   
+}
+else {
+printf("False");    
+}
+return 0;
+}
+*/
+
+    //67. Write a program to verify whether one of the two entered integers falls 
+    // within the range of 100 to 200 included.
+
+    /*
+    
+    */
+
+    //
+
+//ANSWER
+
+/*
+#include<stdio.h>
+int main() {
+int x, y;
+printf("\nEnter the value for x: ");
+scanf("%d", &x); 
+printf("\nEnter the value for y: ");
+scanf("%d", &y); 
+if((x >= 100 && x <= 200) || (y >= 100 && y <= 200)) {
+printf("True");   
+}
+else {
+printf("False");    
+}
+return 0;
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
    return 0;
 }
