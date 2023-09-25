@@ -2326,29 +2326,34 @@ return 0;
 
     //Käyttäjä antaa arvot osoittimille a ja b jotka antavat arvot muuttujille
     // x ja y
-    printf("\nAnna luvut: ");
-        scanf("%d %d", a, b);
+    printf("\nAnna ensimmäinen luku: ");
+        scanf("%d", a);
+        if (*a > 0)
+            continue;
+        else
+        {
+            printf("\n%s\n", VNRO);
+                scanf("%d", a);
+        }
+    
+    
+    printf("\nSyötä toinen luku: ");
+        scanf("%d", b);
+        if (*b > 0)
+            continue;
+        else
+        {
+            printf("\n%s\n", VNRO);
+                scanf("%d", b);
+        }
 
-do
-{
-    if (*a >  0 && *b > 0)
-    {
-        printf("\nOIKEIN");
-        break;
-    }
-    else
-    {
-        printf("\n%s", VIRHE);
-            scanf("%d %d", a, b);
-    }
-} while (*a >  0 && *b > 0);
+    printf("\nSTOP\n");
+    printf("\n%d %d\n", *a, b);
+
 
 
  //   printf(VIRHE);
   //  printf("\n%d ja %d\n", *a, *b);
 
-   return 0;
-}
 
-   return 0;
-}
+
