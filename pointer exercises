@@ -2,7 +2,20 @@
 #include <stdlib.h>
 
 //Based on exericese on: https://www.w3resource.com/c-programming-exercises/pointer/index.php
-int summa( int*, int*);
+//int summa( int*, int*);
+
+
+
+
+void vaihto(char *1, char *2)
+{
+    //
+    char = ;
+}
+
+void permutaatio()
+
+
 
 int main(void){
 
@@ -348,10 +361,12 @@ Expected Output :
 /*
 
 */
-    
+
+/*
     //luodaan muuttujat x ja y sekä summa
-    int x=5, y=6;
-    int sum;
+    int x, y, sum;
+    x = 5;
+    y = 6;
 
     //luodaan muuttujille osoittimet a ja b esimerkiksi
     int *a;
@@ -365,11 +380,207 @@ Expected Output :
     //tehdään funktio joka antaa seuraavalle funktiolle tarvittavat tiedot ja tulostaa sitten siinä lasketun summa
     printf("\nLukujen %d ja %d summ on %d\n", *a, *b, sum);
     return 0;
-
+    }
     //tehdään funktio joka kutsuu aiemmin syötetyn datan ja laskee niiden summan
-    int summa(int (*a), int (*b)){
+    int summa(int *a, int *b)
+    {
         int sum;
         sum = *a + * b;
         return sum;
     }
+*/
+
+/*
+//Answer
+
+#include <stdio.h>
+long addTwoNumbers(long *, long *);
+ 
+int main()
+{
+   long fno, sno, sum;
+   
+   printf("\n\n Pointer : Add two numbers using call by reference:\n"); 
+   printf("-------------------------------------------------------\n");   
+ 
+   printf(" Input the first number : ");
+   scanf("%ld", &fno);
+   printf(" Input the second  number : ");
+   scanf("%ld", &sno);   
+   sum = addTwoNumbers(&fno, &sno);
+   printf(" The sum of %ld and %ld  is %ld\n\n", fno, sno, sum);
+   return 0;
 }
+long addTwoNumbers(long *n1, long *n2) 
+{
+   long sum;
+   sum = *n1 + *n2;
+   return sum;
+}
+*/
+/////////////////////////////////////////////////////////////////////////////////////
+
+/*
+6. Write a program in C to find the maximum number between two numbers using a pointer.
+Test Data :
+Input the first number : 5
+Input the second number : 6
+Expected Output :
+
+6 is the maximum number. 
+*/
+
+/*
+    //luodaan input x ja y, sekä tehdään pointerit eka ja toka
+    int x, y, *eka=&x, *toka=&y;
+
+    //kysytään inputit x ja y
+    printf("\nSyötä eka luku: ");
+        scanf("%d", eka);
+    printf("\nSyötä toka luku: ");
+        scanf("%d", toka);
+
+    //tarkastetaan luvut ja tulostetaan näistä suurin
+    if (*eka > *toka)
+    {
+        printf("\nLuku %d on maksimi numero", *eka);
+    }
+    else
+    {
+        printf("\nLuku %d on maksimi numero", *toka);
+    }
+*/
+
+/*
+//Answer
+
+#include <stdio.h>
+#include <stdlib.h>
+void main()
+{
+ int fno,sno,*ptr1=&fno,*ptr2=&sno;
+ 
+   printf("\n\n Pointer : Find the maximum number between two numbers :\n"); 
+   printf("------------------------------------------------------------\n");   
+ 
+   printf(" Input the first number : ");
+   scanf("%d", ptr1);
+   printf(" Input the second  number : ");
+   scanf("%d", ptr2); 
+
+
+ if(*ptr1>*ptr2)
+ {
+  printf("\n\n %d is the maximum number.\n\n",*ptr1);
+ }
+ else
+ {
+  printf("\n\n %d is the maximum number.\n\n",*ptr2);
+ }
+
+}  
+*/
+///////////////////////////////////////////////////////////////////////////////////////
+
+/*
+7. Write a program in C to store n elements in an array and print the elements using a pointer.
+Test Data :
+Input the number of elements to store in the array :5
+Input 5 number of elements in the array :
+element - 0 : 5
+element - 1 : 7
+element - 2 : 2
+element - 3 : 9
+element - 4 : 8
+Expected Output :
+
+ The elements you entered are :                                                                               
+ element - 0 : 5                                                                                              
+ element - 1 : 7                                                                                              
+ element - 2 : 2                                                                                              
+ element - 3 : 9                                                                                              
+ element - 4 : 8 
+*/
+
+/*
+    //luodaan array sekä muuttujat x ja n
+    int myarray[100], x, n;
+
+    //kysytään ja syötetään lukujen eli rivien määrä
+    printf("\nSyötä luku: ");
+        scanf("%d", &n);
+
+    //tehdään for loop jossa kysytään
+    printf("\nSyötä elementtien määrä: ");
+    for (x = 0; x < n; x++)
+    {
+        printf("\nelement - %d : ", x);
+            scanf("%d", myarray + x);
+    }
+    printf("\nSyötetyt luvut ovat : \n");
+    for ( x = 0; x < n; x++)
+    {
+        printf("\nelement - %d : %d", x, *(myarray + x));
+    }
+*/
+
+/*
+//Answer
+
+#include <stdio.h>
+int main()
+{
+   int arr1[25], i,n;
+   printf("\n\n Pointer : Store and retrieve elements from an array :\n"); 
+   printf("------------------------------------------------------------\n");    
+   printf(" Input the number of elements to store in the array :");
+   scanf("%d",&n);
+   
+   printf(" Input %d number of elements in the array :\n",n);
+   for(i=0;i<n;i++)
+      {
+	  printf(" element - %d : ",i);
+	  scanf("%d",arr1+i);
+	  }
+   printf(" The elements you entered are : \n");
+   for(i=0;i<n;i++)
+      {
+	  printf(" element - %d : %d \n",i,*(arr1+i));
+	  }
+	   return 0;
+}
+*/
+/////////////////////////////////////////////////////////////////////////////////////////
+
+/*
+8. Write a program in C to print all permutations of a given string using pointers.
+Expected Output :
+
+The permutations of the string are :                                                                         
+abcd  abdc  acbd  acdb  adcb  adbc  bacd  badc  bcad  bcda  bdca  bdac  cbad  cbda  cabd  cadb  cdab  cdba  db
+ca  dbac  dcba  dcab  dacb  dabc
+*/
+
+/*
+
+*/
+
+/*
+//ANSWER
+
+*/
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //tehdään funktio joka muuttaa neljän kirjaimen paikkaa merkkijonossa -> rivi 10
+
+
+    //tehdään char string "abcd"
+    char sana[] = "abcd";
+
+    int x = strlen(sana);
+
+
+
+
+
+}  
