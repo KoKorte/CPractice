@@ -30,7 +30,7 @@ void suurin(int suurin){
 //Tee funktio, joka palauttaa satunnaisen lottonumeron
 //Tee ensi lauantian lottorivi valmiiksi
 //P.S. Toisessa vaiheessa pidä huolta, että samaa numeroa ei tule kahdesti
-
+/*
 //tehdään funktio lotto, joka arpoo seitsemän numeroa välillä 1 ... 40
 void lotto(int rivi[], int x){
     //Tehdään muuttuja "numero", joka saa satunnaisen arvon väliltä 1 ... 40
@@ -60,6 +60,11 @@ void lotto(int rivi[], int x){
 
  //   printf("\nOIKEA LOTTORIVI ON: ");
 }
+*/
+
+//TEHDÄÄN 2X4 ARRAY
+
+
 
 
 int main()
@@ -106,7 +111,7 @@ int main()
     }
 */
 
-/**/
+/*
     //Tehtävä 3. ilmoitus
     printf("\nTehtävä 3: \n");
 
@@ -115,8 +120,72 @@ int main()
     //Lottorivin teko
     int lottorivi
 
+*/
+/*
+//
+int array2x4[4][2] = {
+    {26,456},
+    {46,851},
+    {2,79},
+    {15,0}
+    };
 
+    for (int Yaxel = 0; Yaxel < 4; Yaxel++){
+        for (int Xaxel = 0; Xaxel < 2; Xaxel++){
+            printf("%d %d %d\n", Xaxel, Yaxel, array2x4[Yaxel][Xaxel]);
+        }
+    }
+*/
+/*
+//luodaan
+int array2x4flat[8]={
+    26,456,46,851,2,79,15,0
+};
+//
+for (int iter=0; iter < 8; iter++){
+    //halutaan 
+    if (iter % 2 == 0)
+    {
+        printf("%d ", array2x4flat[iter]);
+    }
+    else
+    {
+        printf("%d\n", array2x4flat[iter]);
+    }
+    
+};
+*/
 
+//luodaan flat array
+int array4x4flat[16]={
+    1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16
+};
+printf("\n");
+//flat array käydään läpi
+//position x ja y akselissa
+int Xpos=0, Ypos=0;
+//axissize määrää taulun muodon eli 2x8, 4x4 tai 8x2
+int Xaxissize = 4, Yaxissize = 4;
+for (int iter=0; iter < Xaxissize*Yaxissize; iter++){
+    
+    //halutaan 4x4 taulu, joten neljällä jaollisella
+    //luvulla vaihdetaan rivi'
+    if (iter % 4 == 0)
+    {
+        printf("\n");
+    }
+    //tulosta positio (X,Y) ja elementin arvo
+    printf("(%d,%d),%d",Xpos, Ypos, array4x4flat[iter]);
+    //Xpositio kasvaa yhdellä kunnes arvo on 4
+    Xpos++;
+    if (Xpos % Xaxissize == 0){
+        Xpos=0;
+        //Ypositio kasvaa yhdellä rivin vaihdolla
+        Ypos++;
+    }
+
+    
+};
 
 
 
