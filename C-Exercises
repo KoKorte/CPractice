@@ -1,8 +1,15 @@
+//Lisätään kirjastot
 #include <stdio.h>
 #include <math.h>
 #include<string.h>
 #include <ctype.h>
 #include <stdlib.h>
+
+//Lisätään #define
+#define VIRHE ("Virhe, yritä uudestaan!") //koodin lyhennystä varten
+#define VNRO ("Virhe, syötit vääränlaisen numeron!") //jos tehtävässä vaaditaan tietynlaisen numeron syöttämistä
+#define PII 3.14 //jos koodissa tarvitaan piin arvoa
+
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //-------------------------C-EXERCISES BASED ON https://github.com/manjunath5496/Beginner-C-Exercises/blob/master/README.md-------------------------
@@ -11,7 +18,8 @@
 //ANSWER IS NOT NECESSARULY THE RIGHT ANSWER. ANSWER IS HOW THE QUESTION'S CREATOR HAS ASNWERED TO THEM!
 
 /*
-kirjastot
+#kirjastot
+#define
 ja
 int main
 */
@@ -2254,10 +2262,25 @@ return 0;
     // within the range of 100 to 200 included.
 
     /*
-    
-    */
+    //Luodaan muuttujat x ja y
+    int x, y;
 
-    //
+    //Kysytään käyttäjältä muuttujien arvot
+    printf("\nSyötä ensimmäinen luku: ");
+        scanf("%d", &x);
+    printf("\nSyötä toinen luku: ");
+        scanf("%d", &y);
+
+    //Tehdään if lauseke, jolla tarkistetaan onko toinen numeroista välillä 100 ... 200
+    if ((x >= 100 && x <= 200) || (y >= 100 && y <= 200))
+    {
+        printf("\nNumero löytyy väliltä 100 ... 200");
+    }
+    else
+    {
+        printf("\nKumpikaan numero ei löydy väliltä 100 ... 200");
+    }
+    */
 
 //ANSWER
 
@@ -2280,17 +2303,12 @@ return 0;
 */
 
 
+///////////////////////////////////////////////////////////////////////////////////////////
+/*  TEHDÄÄNPÄ NYT HIEMAN PIDEMMÄN KAAVAN KAUTTA JA KÄYTETÄÄN HYVÄKSI KAIKKEA OPPIMAA     */
+///////////////////////////////////////////////////////////////////////////////////////////
 
 
-
-
-
-
-
-
-
-
-
+    //68. 
 
 
 
