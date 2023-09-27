@@ -1,0 +1,19 @@
+//Kokeillaan tehdä radio sovellus testi
+//Radio tarvitsee: 
+/*
+-Radiokanavat
+-Käännettävän dialin
+-Radio laite
+
+                                  /
+                                 /
+      __________________________/_________________
+      |             --------------------         |
+      |            | printf("%s", kanava|        |
+      |             --------------------         |
+      |                                   ()     |
+    _______________________________________________
+
+
+
+*/
