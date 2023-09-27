@@ -1,6 +1,7 @@
 //Kokeillaan tehdä radio sovellus testi
 //Suunnitelma: radio tarvitsee: 
 /*
+-On/Off kytkin
 -Radiokanavat (Alkuun vaihdetaan kolmen tietyn välillä, Rock, Pop ja uutiset)
 -Mahdollinen satunnainen biisi joke soi ku kanavalle mennään?
 -Mahdollinen \a kanavan vaihdon ääneksi?
