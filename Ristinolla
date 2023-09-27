@@ -63,7 +63,20 @@ int main()
     printf("\nTAULUKKO\n");
     printf("\n%s", str(taulu(riviyla)));
     
-
+/*
+struct taulu
+    {
+        char eka = '0';
+        char toka = '0';
+        char kolmas = '0';
+        char nelos = '0';
+        char vitos = '0';
+        char kutos = '0';
+        char seiska = '0';
+        char kasi = '0';
+        char ysi = '0';
+    };
+*/
 
 
 
