@@ -1,3 +1,9 @@
+//Lisätään tarvittavat kirjastot
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+
+
 //Tehdään ristinolla peli
 //Mitä tarvitaan?
 /*SUUNNITELMA(ei lopullinen)
@@ -6,6 +12,8 @@
 -{0,0,0}
  {0,0,0}
  {0,0,0}
+ (define taulukko?)
+-STRUCT ruudukot?
  -OHJE KUINKA PELATA
 -Mahdollisest x akseli 123 ja y akseli ABC
 -Kysyy käyttäjältä vuoron perään akselin malliin 1A tai 3B
@@ -14,8 +22,9 @@
  printf("\nAnna y akseli: ");
    scanf("%c", y);)
 -Tarkistetaan että "ruudussa" ei ole aiempaa merkkiä (if empty tai is taken?)
-    -> udelleen syöttö komento (define virhe input, syötä uudelleen?)
+    -> uudelleen syöttö komento (define virhe input, syötä uudelleen?)
 -Ei kahta samaa merkkiä peräkkäin(toinen virhe input?)
+
 
 Mahdollisia myöhempiä toimintoja:
 -Pelaaja 1 ja 2 nimet
@@ -26,9 +35,6 @@ Mahdollisia myöhempiä toimintoja:
 
 */
 
-
-#include <stdio.h>
-
 //  OHJE
 //
 //Valitse kuka aloittaa ensin
@@ -37,8 +43,30 @@ Mahdollisia myöhempiä toimintoja:
 //
 
 
+//Luodaan define
+//Luodaan taulukko
+#define taulu
+
 int main()
 {
+    struct taulu
+    {
+        char riviyla;
+    };
+    
+ /*   rivi1 = {"0,0,0"};
+    rivi2 = {"0,0,0"};
+    rivi3 = {"0,0,0"};
+*/
+ //   int ruutu = a, b, c, d, e, f, g, h, i;
+
+    printf("\nTAULUKKO\n");
+    printf("\n%s", str(taulu(riviyla)));
+    
+
+
+
+
 
     return 0;
 }
