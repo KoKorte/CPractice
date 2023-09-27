@@ -6,12 +6,39 @@
 -{0,0,0}
  {0,0,0}
  {0,0,0}
+ -OHJE KUINKA PELATA
 -Mahdollisest x akseli 123 ja y akseli ABC
 -Kysyy käyttäjältä vuoron perään akselin malliin 1A tai 3B
 (printf("\nAnna x akseli: ");
    scanf("%d", x);
  printf("\nAnna y akseli: ");
    scanf("%c", y);)
+-Tarkistetaan että "ruudussa" ei ole aiempaa merkkiä (if empty tai is taken?)
+    -> udelleen syöttö komento (define virhe input, syötä uudelleen?)
+-Ei kahta samaa merkkiä peräkkäin(toinen virhe input?)
+
+Mahdollisia myöhempiä toimintoja:
+-Pelaaja 1 ja 2 nimet
+-srand yksinpeli
+-Valinta yksin- tai kaksinpelille
+-Valinta haluaako olla X tai O
 
 
 */
+
+
+#include <stdio.h>
+
+//  OHJE
+//
+//Valitse kuka aloittaa ensin
+//Syötä numero ja kirjain muodossa esim. 1A.
+//
+//
+
+
+int main()
+{
+
+    return 0;
+}
