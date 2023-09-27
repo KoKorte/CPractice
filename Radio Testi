@@ -1,19 +1,32 @@
 //Kokeillaan tehdä radio sovellus testi
-//Radio tarvitsee: 
+//Suunnitelma: radio tarvitsee: 
 /*
--Radiokanavat
--Käännettävän dialin
--Radio laite
+-Radiokanavat (Alkuun vaihdetaan kolmen tietyn välillä, Rock, Pop ja uutiset)
+-Mahdollinen satunnainen biisi joke soi ku kanavalle mennään?
+-Mahdollinen \a kanavan vaihdon ääneksi?
+-Käännettävän dialin (B back, N next)
+-Näyttö joka kertoo millä kanavalla ollaan
+-Radio laite:
 
                                   /
                                  /
-      __________________________/_________________
-      |             --------------------         |
+       _________________________/________________
+      |             ____________________         |
       |            | printf("%s", kanava|        |
-      |             --------------------         |
+      |            |____________________|        |
       |                                   ()     |
-    _______________________________________________
-
+     _|__________________________________________|_
 
 
 */
+
+
+
+
+int main()
+{
+
+
+
+return 0;
+}
