@@ -1,0 +1,17 @@
+//Tehdään ristinolla peli
+//Mitä tarvitaan?
+/*SUUNNITELMA(ei lopullinen)
+-C-kieli
+-Aluksi 2 pelaajaa X ja O
+-{0,0,0}
+ {0,0,0}
+ {0,0,0}
+-Mahdollisest x akseli 123 ja y akseli ABC
+-Kysyy käyttäjältä vuoron perään akselin malliin 1A tai 3B
+(printf("\nAnna x akseli: ");
+   scanf("%d", x);
+ printf("\nAnna y akseli: ");
+   scanf("%c", y);)
+
+
+*/
