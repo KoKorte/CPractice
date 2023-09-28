@@ -1,20 +1,13 @@
-//Lisätään tarvittavat kirjastot
 #include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-
 
 //Tehdään ristinolla peli
-//------------------------------
 //Mitä tarvitaan?
-//--------------------------------
 /*SUUNNITELMA(ei lopullinen)
-//------------------------------
 -C-kieli
 -Aluksi 2 pelaajaa X ja O
--{0,0,0}
- {0,0,0}
- {0,0,0}
+-Taulukko?  {0,0,0}
+            {0,0,0}
+            {0,0,0}
  (define taulukko?)
 -STRUCT ruudukot?
  -OHJE KUINKA PELATA
@@ -42,20 +35,19 @@ Mahdollisia myöhempiä toimintoja:
 //
 //Valitse kuka aloittaa ensin
 //Syötä numero ja kirjain muodossa esim. 1A.
-//Pelaaja X aloittaa ensin
+//
 //
 
-
-// Määritellään struct Ruutu
+// Luodaan struct Ruutu
 struct Ruutu {
-    char merkki; // 'X', 'O' tai ' '
+    char merkki; // 'X', 'O' tai ' '(tyhjä kohta)
 };
 
 // Funktio ruudukon näyttämiseksi
 void näytäRuudukko(struct Ruutu ruudukko[3][3]) {
     printf("  1 2 3\n");
     for (int a = 0; a < 3; a++) {
-        printf("%c", 'A' + a); // Tulostaa rivin kirjaimen (A, B, C)
+        printf("%c", 'A' + a); // Tulostetaan pystyrivi (A, B, C)
         for (int b = 0; b < 3; b++) {
             printf("|%c", ruudukko[a][b].merkki); // Tulostaa ruudukon merkin ('X', 'O' tai ' ')
         }
@@ -90,17 +82,17 @@ int tarkistaVoitto(struct Ruutu ruudukko[3][3], char merkki) {
 }
 
 int main() {
-    // Alusta peliruudukko struct-olioilla
+    // Alustetaan peliruudukko structilla
     struct Ruutu ruudukko[3][3];
     
-    // Alusta ruudukko tyhjillä soluilla
+    // Alustetaan ruudukko tyhjillä kohdilla
     for (int a = 0; a < 3; a++) {
         for (int b = 0; b < 3; b++) {
             ruudukko[a][b].merkki = ' ';
         }
     }
     
-    // Alusta vuoropelaaja
+    // Alustetaan pelaajan vuoro
     char vuoro = 'X';
     int x, y;
     
@@ -116,16 +108,16 @@ int main() {
         // Muunna y-akseli numeroiksi
         y = y - 'A';
         
-        // Tarkista, onko siirto kelvollinen
+        // Tarkistetaan, onko siirto kelvollinen
         if (x < 1 || x > 3 || y < 0 || y > 2 || ruudukko[y][x - 1].merkki != ' ') {
             printf("Virheellinen siirto. Yritä uudelleen.\n");
             continue;
         }
         
-        // Päivitä ruudukko
+        // Päivitetään ruudukko
         ruudukko[y][x - 1].merkki = vuoro;
         
-        // Tarkista voitto
+        // Tarkistaa voiton
         if (tarkistaVoitto(ruudukko, vuoro)) {
             näytäRuudukko(ruudukko);
             printf("Pelaaja %c voitti! Onnittelut!\n", vuoro);
@@ -137,50 +129,5 @@ int main() {
         
     } while (1); // Pelisilmukka jatkuu loputtomiin, kunnes pelaaja voittaa
     
-    return 0;
-}
-
-
-
-
-/*
-//Luodaan define
-//Luodaan taulukko
-#define taulu
-
-int main()
-{
-    struct taulu
-    {
-        char riviyla;
-    };
-    
- /*   rivi1 = {"0,0,0"};
-    rivi2 = {"0,0,0"};
-    rivi3 = {"0,0,0"};
-*/
- //   int ruutu = a, b, c, d, e, f, g, h, i;
-
-    printf("\nTAULUKKO\n");
-    printf("\n%s", str(taulu(riviyla)));
-    
-/*
-struct taulu
-    {
-        char eka = '0';
-        char toka = '0';
-        char kolmas = '0';
-        char nelos = '0';
-        char vitos = '0';
-        char kutos = '0';
-        char seiska = '0';
-        char kasi = '0';
-        char ysi = '0';
-    };
-*/
-
-*/
-
-
     return 0;
 }
