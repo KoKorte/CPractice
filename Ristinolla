@@ -49,9 +49,9 @@ TERMIT JA MUUTTUJAT:
 
 struct Ruutu -> Rakenne (struct), joka kuvaa yksittäistä peliruudun tilaa. Sisältää joko 'X', 'O' tai tyhjän merkin (' ').
 
-merkki -> Merkkijono (char), joka kuvaa pelaajien merkkejä pelissä. Pelaajilla voi olla merkit 'X' tai 'O'.
+merkki -> Merkkijono (char), joka kuvaa pelaajien merkkejä ('X' tai 'O') pelissä.
 
-ruudukko[3][3] -> 2D-struct-ruudukko, joka pitää kirjaa peliruudukon tilasta. Jokaisella ruudulla voi olla merkki 'X', 'O' tai tyhjä (' ').
+ruudukko[3][3] -> Kaksiulotteinen struct, jossa jokaisella ruudulla voi on merkki 'X', 'O' tai tyhjä (' ').
 
 vuoro -> Merkkijono (char), joka osoittaa vuorossa olevan pelaajan ('X' tai 'O').
 
@@ -65,7 +65,7 @@ void näytäRuudukko(struct Ruutu ruudukko[3][3]) -> Tulostaa peliruudukon näyt
 
 int tarkistaVoitto(struct Ruutu ruudukko[3][3], char merkki) -> Tarkistaa voittoehdot peliruudukossa tietylle merkille ('X' tai 'O') ja palauttaa 1 voiton tapauksessa tai 0 muuten.
 
-int main() -> Pääohjelma, jossa pelin pääsilmukka suoritetaan. Tämä osa hallinnoi pelin vuorottelua, pelaajien syöttöä ja voittojen tarkistusta.
+int main() -> Pääohjelma, jossa pelin päälooppi pyöritellään. Siinä pyörii pelin kulku, syötöt ja voittaminen.
 */
 
 // Luodaan struct Ruutu
