@@ -43,42 +43,52 @@ Mahdollisia myöhempiä toimintoja:
 // ONNEA PELIIN
 
 // Luodaan struct Ruutu
-struct Ruutu {
+struct Ruutu 
+{
     char merkki; // Merkki on joko 'X', 'O' tai ' '(tyhjä kohta)
 };
 
 // Funktio ruudukon näyttämiseksi
-void näytäRuudukko(struct Ruutu ruudukko[3][3]) {
+void näytäRuudukko(struct Ruutu ruudukko[3][3]) 
+{
     printf("  1 2 3\n"); //Tulostetaan vaakarivi (1,2,3)
-    for (int a = 0; a < 3; a++) {   //int a vastaa vaakariviä
+    for (int a = 0; a < 3; a++) //int a vastaa vaakariviä
+    {   
         printf("%c", 'A' + a); // Tulostetaan pystyrivi (A, B, C)
-        for (int b = 0; b < 3; b++) {   //int b vastaa pystyriviä
+        for (int b = 0; b < 3; b++)  //int b vastaa pystyriviä
+        {  
             printf("|%c", ruudukko[a][b].merkki); // Tulostetaan ruudukko, jota pelaaja on täyttänyt
         }
         printf("|\n");  // Tulostetaan pystyrivin merkki käyttämällä "|"
-        if (a < 2) {
+        if (a < 2) 
+        {
             printf("  -+-+-\n"); // Tulostetaan vaakaviiva
         }
     }
 }
 
 // Luodaan funktio, joka tarkistaa voitot pystyyn, vaakaan ja vinoon
-int tarkistaVoitto(struct Ruutu ruudukko[3][3], char merkki) {
+int tarkistaVoitto(struct Ruutu ruudukko[3][3], char merkki) 
+{
     // Tarkistetaan vaakasuorat ja pystysuorat voitot
     for (int a = 0; a < 3; a++) {
-        if (ruudukko[a][0].merkki == merkki && ruudukko[a][1].merkki == merkki && ruudukko[a][2].merkki == merkki) {
+        if (ruudukko[a][0].merkki == merkki && ruudukko[a][1].merkki == merkki && ruudukko[a][2].merkki == merkki) 
+        {
             return 1; // Voitto
         }
-        if (ruudukko[0][a].merkki == merkki && ruudukko[1][a].merkki == merkki && ruudukko[2][a].merkki == merkki) {
+        if (ruudukko[0][a].merkki == merkki && ruudukko[1][a].merkki == merkki && ruudukko[2][a].merkki == merkki) 
+        {
             return 1; // Voitto
         }
     }
     
     // Tarkistetaan ruudukko vinosti
-    if (ruudukko[0][0].merkki == merkki && ruudukko[1][1].merkki == merkki && ruudukko[2][2].merkki == merkki) {
+    if (ruudukko[0][0].merkki == merkki && ruudukko[1][1].merkki == merkki && ruudukko[2][2].merkki == merkki) 
+    {
         return 1; // Voitto
     }
-    if (ruudukko[0][2].merkki == merkki && ruudukko[1][1].merkki == merkki && ruudukko[2][0].merkki == merkki) {
+    if (ruudukko[0][2].merkki == merkki && ruudukko[1][1].merkki == merkki && ruudukko[2][0].merkki == merkki) 
+    {
         return 1; // Voitto
     }
     
@@ -91,8 +101,10 @@ int main()
     struct Ruutu ruudukko[3][3];
     
     //Luodaan ruudukkoon tyhjät kohdat
-    for (int a = 0; a < 3; a++) {
-        for (int b = 0; b < 3; b++) {
+    for (int a = 0; a < 3; a++) 
+    {
+        for (int b = 0; b < 3; b++) 
+        {
             ruudukko[a][b].merkki = ' ';
         }
     }
@@ -123,7 +135,8 @@ int main()
         ruudukko[y][x - 1].merkki = vuoro;
         
         // Tarkistetaan voittiko joku
-        if (tarkistaVoitto(ruudukko, vuoro)) {
+        if (tarkistaVoitto(ruudukko, vuoro)) 
+        {
             näytäRuudukko(ruudukko);
             printf("%s %c!\n",VOITTAJA, vuoro);
             break;  // Peli päättyy
