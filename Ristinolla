@@ -35,9 +35,6 @@ Mahdollisia myöhempiä toimintoja:
 #define VIRHE ("Virheellinen siirto. Yritä uudelleen.\n")
 #define VOITTAJA ("Voittaja on pelaaja ")
 
-
-
-
 //  OHJE
 
 // Valitse kuka aloittaa ensin
