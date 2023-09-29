@@ -42,6 +42,32 @@ Mahdollisia myöhempiä toimintoja:
 // Kokeille saada 3 vierekkäin vaakaan, pystyyn tai vinoon
 // ONNEA PELIIN
 
+
+//Selitykset rakenteesta
+/*
+TERMIT JA MUUTTUJAT:
+
+struct Ruutu -> Rakenne (struct), joka kuvaa yksittäistä peliruudun tilaa. Sisältää joko 'X', 'O' tai tyhjän merkin (' ').
+
+merkki -> Merkkijono (char), joka kuvaa pelaajien merkkejä pelissä. Pelaajilla voi olla merkit 'X' tai 'O'.
+
+ruudukko[3][3] -> 2D-struct-ruudukko, joka pitää kirjaa peliruudukon tilasta. Jokaisella ruudulla voi olla merkki 'X', 'O' tai tyhjä (' ').
+
+vuoro -> Merkkijono (char), joka osoittaa vuorossa olevan pelaajan ('X' tai 'O').
+
+x -> Kokonaisluku (int), joka vastaa pelaajan syöttämää x-akselin sijaintia (1-3).
+
+y -> Merkki (char), joka vastaa pelaajan syöttämää y-akselin sijaintia ('A', 'B' tai 'C').
+
+FUNKTIOT:
+
+void näytäRuudukko(struct Ruutu ruudukko[3][3]) -> Tulostaa peliruudukon näytölle konsoliin.
+
+int tarkistaVoitto(struct Ruutu ruudukko[3][3], char merkki) -> Tarkistaa voittoehdot peliruudukossa tietylle merkille ('X' tai 'O') ja palauttaa 1 voiton tapauksessa tai 0 muuten.
+
+int main() -> Pääohjelma, jossa pelin pääsilmukka suoritetaan. Tämä osa hallinnoi pelin vuorottelua, pelaajien syöttöä ja voittojen tarkistusta.
+*/
+
 // Luodaan struct Ruutu
 struct Ruutu 
 {
