@@ -8,7 +8,6 @@
 -Aluksi 2 pelaajaa X ja O
 -Taulukko ideat     {0,0,0}     |0|0|0|      0|0|0
                     {0,0,0}     |0|0|0|      -+-+-
- 
 viestit definellä?
 -STRUCT ruudukot?
  -OHJE KUINKA PELATA
@@ -18,10 +17,10 @@ viestit definellä?
    scanf("%d", x);
  printf("\nAnna y akseli: ");
    scanf("%c", y);)
+   TAI YHDISTÄÄ NÄMÄ?
 -Tarkistetaan että "ruudussa" ei ole aiempaa merkkiä (if empty tai is taken?)
     -> uudelleen syöttö komento (define virhe input, syötä uudelleen?)
 -Ei kahta samaa merkkiä peräkkäin(toinen virhe input?)
-
 
 Mahdollisia myöhempiä toimintoja:
 -Pelaaja 1 ja 2 nimet
