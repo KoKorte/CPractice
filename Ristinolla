@@ -8,9 +8,10 @@
 -Aluksi 2 pelaajaa X ja O
 -Taulukko ideat     {0,0,0}     |0|0|0|      0|0|0
                     {0,0,0}     |0|0|0|      -+-+-
+
 viestit definellä?
 -STRUCT ruudukot?
- -OHJE KUINKA PELATA
+-OHJE KUINKA PELATA
 -Mahdollisest x akseli 123 ja y akseli ABC
 -Kysyy käyttäjältä vuoron perään akselin malliin 1A tai 3B
 (printf("\nAnna x akseli: ");
@@ -30,9 +31,12 @@ Mahdollisia myöhempiä toimintoja:
 */
 
 //Luodaan define viesteille
-#define VUORO   (" vuoro. Anna syöttö muodossa x-akseli (1-3) ja y-akseli (A-C): ")
+#define VUORO ("vuoro. Anna syöttö muodossa x-akseli (1-3) ja y-akseli (A-C): ")
 #define VIRHE ("Virheellinen siirto. Yritä uudelleen.\n")
 #define VOITTAJA ("Voittaja on pelaaja ")
+
+
+
 
 //  OHJE
 
@@ -43,7 +47,7 @@ Mahdollisia myöhempiä toimintoja:
 
 // Luodaan struct Ruutu
 struct Ruutu {
-    char merkki; // 'X', 'O' tai ' '(tyhjä kohta)
+    char merkki; // Merkki on joko 'X', 'O' tai ' '(tyhjä kohta)
 };
 
 // Funktio ruudukon näyttämiseksi
@@ -61,7 +65,7 @@ void näytäRuudukko(struct Ruutu ruudukko[3][3]) {
     }
 }
 
-// Tarkistetaan voittoehdot
+// Luodaan funktio, joka tarkistaa voitot pystyyn, vaakaan ja vinoon
 int tarkistaVoitto(struct Ruutu ruudukko[3][3], char merkki) {
     // Tarkistetaan vaakasuorat ja pystysuorat voitot
     for (int a = 0; a < 3; a++) {
@@ -84,11 +88,12 @@ int tarkistaVoitto(struct Ruutu ruudukko[3][3], char merkki) {
     return 0; // Ei voittoa
 }
 
-int main() {
+int main() 
+{
     //Luodaan peliruutu
     struct Ruutu ruudukko[3][3];
     
-    //Merkataan ruudukkoon tyhjät kohdat
+    //Luodaan ruudukkoon tyhjät kohdat
     for (int a = 0; a < 3; a++) {
         for (int b = 0; b < 3; b++) {
             ruudukko[a][b].merkki = ' ';
@@ -106,7 +111,7 @@ int main() {
         
         //Kerrotaan pelaajalle, että on hänen vuoronsa antamalla %c(X tai O)
         printf("Pelaajan %c %s", vuoro, VUORO);
-          scanf("%d %c", &x, &y);    //Pelaaja syöttää ensin x numero rivin ja sitten y kirjain rivin käyttämällä ISOJA kirjaimia
+            scanf("%d %c", &x, &y);     //Pelaaja syöttää ensin x numero rivin ja sitten y kirjain rivin käyttämällä ISOJA kirjaimia
         
         // Muutetaan y-akseli numeroiksi
         y = y - 'A';
@@ -120,14 +125,14 @@ int main() {
         // Päivitetään ruudukko
         ruudukko[y][x - 1].merkki = vuoro;
         
-        // Tarkistetaan voitto
+        // Tarkistetaan voittiko joku
         if (tarkistaVoitto(ruudukko, vuoro)) {
             näytäRuudukko(ruudukko);
             printf("%s %c!\n",VOITTAJA, vuoro);
-            break;
+            break;  // Peli päättyy
         }
         
-        // Vaihda vuoroa käyttämällä ternary operaattoria
+        // Vaihdetaan vuoroa käyttämällä ternaryä
         vuoro = (vuoro == 'X') ? 'O' : 'X';
         
     } while (1); //Loopataan loputtomasti, kunnes joku on voittanut
