@@ -12,7 +12,7 @@
 viestit definellä?
 -STRUCT ruudukot?
 -OHJE KUINKA PELATA
--Mahdollisest x akseli 123 ja y akseli ABC
+-Mahdollisesti x akseli 123 ja y akseli ABC
 -Kysyy käyttäjältä vuoron perään akselin malliin 1A tai 3B
 (printf("\nAnna x akseli: ");
    scanf("%d", x);
@@ -31,9 +31,9 @@ Mahdollisia myöhempiä toimintoja:
 */
 
 //Luodaan define viesteille
-#define VUORO ("vuoro. Anna syöttö muodossa x-akseli (1-3) ja y-akseli (A-C): ")
-#define VIRHE ("Virheellinen siirto. Yritä uudelleen.\n")
-#define VOITTAJA ("Voittaja on pelaaja ")
+#define TURN ("vuoro. Anna luvut ja merkit muodossa x-akseli (1-3) ja y-akseli (A-C): ")
+#define ERROR ("Virheellinen siirto. Yritä uudelleen.\n")
+#define WINNER ("Voittaja on pelaaja ")
 
 //  OHJE
 
@@ -47,13 +47,13 @@ Mahdollisia myöhempiä toimintoja:
 /*
 TERMIT JA MUUTTUJAT:
 
-struct Ruutu -> Rakenne (struct), joka kuvaa yksittäistä peliruudun tilaa. Sisältää joko 'X', 'O' tai tyhjän merkin (' ').
+struct Area -> Area (struct), joka kuvaa yksittäistä peliruudun tilaa. Sisältää joko 'X', 'O' tai tyhjän merkin (' ').
 
-merkki -> Merkkijono (char), joka kuvaa pelaajien merkkejä ('X' tai 'O') pelissä.
+character -> Merkkijono (char), joka kuvaa pelaajien merkkejä ('X' tai 'O') pelissä.
 
-ruudukko[3][3] -> Kaksiulotteinen struct, jossa jokaisella ruudulla voi on merkki 'X', 'O' tai tyhjä (' ').
+area[3][3] -> Kaksiulotteinen struct, jossa jokaisella ruudulla voi on merkki 'X', 'O' tai tyhjä (' ').
 
-vuoro -> Merkkijono (char), joka osoittaa vuorossa olevan pelaajan ('X' tai 'O').
+turn -> Merkkijono (char), joka osoittaa vuorossa olevan pelaajan ('X' tai 'O').
 
 x -> Kokonaisluku (int), joka vastaa pelaajan syöttämää x-akselin sijaintia (1-3).
 
@@ -61,21 +61,21 @@ y -> Merkki (char), joka vastaa pelaajan syöttämää y-akselin sijaintia ('A',
 
 FUNKTIOT:
 
-void näytäRuudukko(struct Ruutu ruudukko[3][3]) -> Tulostaa peliruudukon näytölle konsoliin.
+void showStruct(struct Area area[3][3]) -> Tulostaa peliruudukon näytölle konsoliin.
 
-int tarkistaVoitto(struct Ruutu ruudukko[3][3], char merkki) -> Tarkistaa voittoehdot peliruudukossa tietylle merkille ('X' tai 'O') ja palauttaa 1 voiton tapauksessa tai 0 muuten.
+int checkWin(struct Ruutu ruudukko[3][3], char merkki) -> Tarkistaa voittoehdot peliruudukossa tietylle merkille ('X' tai 'O') ja palauttaa 1 voiton tapauksessa tai 0 muuten.
 
 int main() -> Pääohjelma, jossa pelin päälooppi pyöritellään. Siinä pyörii pelin kulku, syötöt ja voittaminen.
 */
 
 // Luodaan struct Ruutu
-struct Ruutu 
+struct Area 
 {
-    char merkki; // Merkki on joko 'X', 'O' tai ' '(tyhjä kohta)
+    char character; // Merkki on joko 'X', 'O' tai ' '(tyhjä kohta)
 };
 
 // Funktio ruudukon näyttämiseksi
-void näytäRuudukko(struct Ruutu ruudukko[3][3]) 
+void showArea(struct Area area[3][3]) 
 {
     printf("  1 2 3\n"); //Tulostetaan vaakarivi (1,2,3)
     for (int a = 0; a < 3; a++) //int a vastaa vaakariviä
@@ -83,7 +83,7 @@ void näytäRuudukko(struct Ruutu ruudukko[3][3])
         printf("%c", 'A' + a); // Tulostetaan pystyrivi (A, B, C)
         for (int b = 0; b < 3; b++)  //int b vastaa pystyriviä
         {  
-            printf("|%c", ruudukko[a][b].merkki); // Tulostetaan ruudukko, jota pelaaja on täyttänyt
+            printf("|%c", area[a][b].character); // Tulostetaan ruudukko, jota pelaaja on täyttänyt
         }
         printf("|\n");  // Tulostetaan pystyrivin merkki käyttämällä "|"
         if (a < 2) 
@@ -94,26 +94,26 @@ void näytäRuudukko(struct Ruutu ruudukko[3][3])
 }
 
 // Luodaan funktio, joka tarkistaa voitot pystyyn, vaakaan ja vinoon
-int tarkistaVoitto(struct Ruutu ruudukko[3][3], char merkki) 
+int checkWin(struct Area area[3][3], char character) 
 {
     // Tarkistetaan vaakasuorat ja pystysuorat voitot
     for (int a = 0; a < 3; a++) {
-        if (ruudukko[a][0].merkki == merkki && ruudukko[a][1].merkki == merkki && ruudukko[a][2].merkki == merkki) 
+        if (area[a][0].character == character && area[a][1].character == character && area[a][2].character == character) 
         {
             return 1; // Voitto
         }
-        if (ruudukko[0][a].merkki == merkki && ruudukko[1][a].merkki == merkki && ruudukko[2][a].merkki == merkki) 
+        if (area[0][a].character == character && area[1][a].character == character && area[2][a].character == character) 
         {
             return 1; // Voitto
         }
     }
     
     // Tarkistetaan ruudukko vinosti
-    if (ruudukko[0][0].merkki == merkki && ruudukko[1][1].merkki == merkki && ruudukko[2][2].merkki == merkki) 
+    if (area[0][0].character == character && area[1][1].character == character && area[2][2].character == character) 
     {
         return 1; // Voitto
     }
-    if (ruudukko[0][2].merkki == merkki && ruudukko[1][1].merkki == merkki && ruudukko[2][0].merkki == merkki) 
+    if (area[0][2].character == character && area[1][1].character == character && area[2][0].character == character) 
     {
         return 1; // Voitto
     }
@@ -124,53 +124,53 @@ int tarkistaVoitto(struct Ruutu ruudukko[3][3], char merkki)
 int main() 
 {
     //Luodaan peliruutu
-    struct Ruutu ruudukko[3][3];
+    struct Area area[3][3];
     
     //Luodaan ruudukkoon tyhjät kohdat
     for (int a = 0; a < 3; a++) 
     {
         for (int b = 0; b < 3; b++) 
         {
-            ruudukko[a][b].merkki = ' ';
+            area[a][b].character = ' ';
         }
     }
     
     //Ensimmäisen pelaajan (X) vuoro
-    char vuoro = 'X';
+    char turn = 'X';
     int x, y;
     
     // Do While looppi jossa pelaaminen tapahtuu
     do {
         // Näytetään ruudukko
-        näytäRuudukko(ruudukko);
+        showArea(area);
         
         //Kerrotaan pelaajalle, että on hänen vuoronsa antamalla %c(X tai O)
-        printf("Pelaajan %c %s", vuoro, VUORO);
+        printf("Pelaajan %c %s", turn, TURN);
             scanf("%d %c", &x, &y);     //Pelaaja syöttää ensin x numero rivin ja sitten y kirjain rivin käyttämällä ISOJA kirjaimia
         
         // Muutetaan y-akseli numeroiksi
         y = y - 'A';
         
         // Tarkistetaan, onko siirto sääntöjen mukainen
-        if (x < 1 || x > 3 || y < 0 || y > 2 || ruudukko[y][x - 1].merkki != ' ') 
+        if (x < 1 || x > 3 || y < 0 || y > 2 || area[y][x - 1].character != ' ') 
         {
-            printf("%s", VIRHE);
+            printf("%s", ERROR);
             continue;
         }
         
         // Päivitetään ruudukko
-        ruudukko[y][x - 1].merkki = vuoro;
+        area[y][x - 1].character = turn;
         
         // Tarkistetaan voittiko joku
-        if (tarkistaVoitto(ruudukko, vuoro)) 
+        if (checkWin(area, turn)) 
         {
-            näytäRuudukko(ruudukko);
-            printf("%s %c!\n",VOITTAJA, vuoro);
+            showArea(area);
+            printf("%s %c!\n",WINNER, turn);
             break;  // Peli päättyy
         }
         
         // Vaihdetaan vuoroa käyttämällä ternaryä
-        vuoro = (vuoro == 'X') ? 'O' : 'X';
+        turn = (turn == 'X') ? 'O' : 'X';
         
     } while (1); //Loopataan loputtomasti, kunnes joku on voittanut
     
