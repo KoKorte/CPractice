@@ -112,6 +112,7 @@ int checkWin(struct Area area[3][3], char character)
 
 int main()
 {
+    printf("\nTervetuloa pelaajat!! X aloittaa. Anna paikka muodossa xy. Esimerkiksi 1B.\n");
     struct Area area[3][3];
     for(int a = 0; a < 3; a++)
     {
