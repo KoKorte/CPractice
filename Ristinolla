@@ -1,6 +1,3 @@
-//Lisätään tarvittavat kirjastot
-#include <stdio.h>
-
 //Tehdään ristinolla peli
 //Mitä tarvitaan?
 /*SUUNNITELMA(ei lopullinen)
@@ -29,19 +26,12 @@ Mahdollisia myöhempiä toimintoja:
 -Valinta yksin- tai kaksinpelille
 -Valinta haluaako olla X tai O
 */
-
-//Luodaan define viesteille
-#define TURN ("vuoro. Anna luvut ja merkit muodossa x-akseli (1-3) ja y-akseli (A-C): ")
-#define ERROR ("Virheellinen siirto. Yritä uudelleen.\n")
-#define WINNER ("Voittaja on pelaaja ")
-
 //  OHJE
 
 // Valitse kuka aloittaa ensin
 // Syötä numero ja kirjain muodossa esim. 1A.
 // Kokeille saada 3 vierekkäin vaakaan, pystyyn tai vinoon
 // ONNEA PELIIN
-
 
 //Selitykset rakenteesta
 /*
@@ -68,111 +58,98 @@ int checkWin(struct Ruutu ruudukko[3][3], char merkki) -> Tarkistaa voittoehdot 
 int main() -> Pääohjelma, jossa pelin päälooppi pyöritellään. Siinä pyörii pelin kulku, syötöt ja voittaminen.
 */
 
-// Luodaan struct Ruutu
-struct Area 
+#include <stdio.h>
+
+struct Area
 {
-    char character; // Merkki on joko 'X', 'O' tai ' '(tyhjä kohta)
+    char character;
 };
 
-// Funktio ruudukon näyttämiseksi
-void showArea(struct Area area[3][3]) 
+//Luodaan taulukko
+void showArea(struct Area area[3][3])
 {
-    printf("  1 2 3\n"); //Tulostetaan vaakarivi (1,2,3)
-    for (int a = 0; a < 3; a++) //int a vastaa vaakariviä
-    {   
-        printf("%c", 'A' + a); // Tulostetaan pystyrivi (A, B, C)
-        for (int b = 0; b < 3; b++)  //int b vastaa pystyriviä
-        {  
-            printf("|%c", area[a][b].character); // Tulostetaan ruudukko, jota pelaaja on täyttänyt
-        }
-        printf("|\n");  // Tulostetaan pystyrivin merkki käyttämällä "|"
-        if (a < 2) 
+    printf(" 1  2  3\n");
+    for (int a = 0; a < 3; a++)
+    {
+        printf("%c", 'A' + a);
+        for (int b = 0; b < 3; b++)
         {
-            printf("  -+-+-\n"); // Tulostetaan vaakaviiva
+            printf("|%c", area[a][b].character);
+        }
+        printf("|\n");
+        if (a < 2)
+        {
+            printf(" --+-+--\n");
         }
     }
 }
 
-// Luodaan funktio, joka tarkistaa voitot pystyyn, vaakaan ja vinoon
-int checkWin(struct Area area[3][3], char character) 
+//Tarkistetaan voitot
+int checkWin(struct Area area[3][3], char character)
 {
-    // Tarkistetaan vaakasuorat ja pystysuorat voitot
-    for (int a = 0; a < 3; a++) {
-        if (area[a][0].character == character && area[a][1].character == character && area[a][2].character == character) 
-        {
-            return 1; // Voitto
-        }
-        if (area[0][a].character == character && area[1][a].character == character && area[2][a].character == character) 
-        {
-            return 1; // Voitto
-        }
-    }
-    
-    // Tarkistetaan ruudukko vinosti
-    if (area[0][0].character == character && area[1][1].character == character && area[2][2].character == character) 
+    for (int a = 0; a < 3; a++)
     {
-        return 1; // Voitto
+        if (area[a][0].character == character && area[a][1].character == character && area[a][2].character == character)
+        {
+            return 1;
+        }
+        if (area[0][a].character == character && area[1][a].character == character && area[2][a].character == character)
+        {
+            return 1;
+        }
     }
-    if (area[0][2].character == character && area[1][1].character == character && area[2][0].character == character) 
+    if (area[0][0].character == character && area[1][1].character == character && area[2][2].character == character)
     {
-        return 1; // Voitto
+        return 1;
     }
+    if (area[0][2].character == character && area[1][1].character == character && area[2][0].character == character)
+    {
+        return 1;
+    }
+    return 0;
     
-    return 0; // Ei voittoa
 }
 
-int main() 
+int main()
 {
-    //Luodaan peliruutu
     struct Area area[3][3];
-    
-    //Luodaan ruudukkoon tyhjät kohdat
-    for (int a = 0; a < 3; a++) 
+    for(int a = 0; a < 3; a++)
     {
-        for (int b = 0; b < 3; b++) 
+        for (int b = 0; b < 3; b++)
         {
             area[a][b].character = ' ';
         }
     }
-    
-    //Ensimmäisen pelaajan (X) vuoro
+
     char turn = 'X';
-    int x, y;
-    
-    // Do While looppi jossa pelaaminen tapahtuu
-    do {
-        // Näytetään ruudukko
+    int x , y;
+    char input[3];
+
+    do
+    {
         showArea(area);
+        printf("\nPelaajan %c vuoro:", turn);
+            scanf("%s", input);
         
-        //Kerrotaan pelaajalle, että on hänen vuoronsa antamalla %c(X tai O)
-        printf("Pelaajan %c %s", turn, TURN);
-            scanf("%d %c", &x, &y);     //Pelaaja syöttää ensin x numero rivin ja sitten y kirjain rivin käyttämällä ISOJA kirjaimia
-        
-        // Muutetaan y-akseli numeroiksi
-        y = y - 'A';
-        
-        // Tarkistetaan, onko siirto sääntöjen mukainen
-        if (x < 1 || x > 3 || y < 0 || y > 2 || area[y][x - 1].character != ' ') 
+        x = input[0] - '1';
+        y = input[1] - 'A';
+
+        if (x < 0 || x > 2 || y < 0 || y > 2 || area[y][x].character != ' ')
         {
-            printf("%s", ERROR);
+            printf("\nVirheellinen yritys\n");
             continue;
         }
-        
-        // Päivitetään ruudukko
-        area[y][x - 1].character = turn;
-        
-        // Tarkistetaan voittiko joku
-        if (checkWin(area, turn)) 
+
+        area[y][x].character = turn;
+
+        if (checkWin(area, turn))
         {
             showArea(area);
-            printf("%s %c!\n",WINNER, turn);
-            break;  // Peli päättyy
+            printf("\nPelaaja %c on voittaja!\n", turn);
+            break;
         }
-        
-        // Vaihdetaan vuoroa käyttämällä ternaryä
         turn = (turn == 'X') ? 'O' : 'X';
         
-    } while (1); //Loopataan loputtomasti, kunnes joku on voittanut
-    
+    } while (1);
     return 0;
 }
